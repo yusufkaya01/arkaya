@@ -26,6 +26,9 @@
   "products": {
     "title": "Our Products",
     "subtitle": "Modern and reliable software solutions that optimize your business processes",
+    "sectors": {
+      "title": "Industries We Serve"
+    },
     "katip": {
       "title": "Katip Otomasyonu",
       "subtitle": "OSGB Central Management and Automation System",
@@ -161,12 +164,9 @@
   },
   "sectors": {
     "title": "Sectors We Serve",
-    "healthcare": "Healthcare",
-    "construction": "Construction",
-    "manufacturing": "Manufacturing",
-    "finance": "Finance",
-    "education": "Education",
-    "retail": "Retail"
+  "construction": "Construction",
+  "software": "Software Development",
+  "consulting": "Consulting"
   },
   "contact": {
     "title": "Contact Us",

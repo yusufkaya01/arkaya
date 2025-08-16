@@ -115,45 +115,6 @@ const BenefitCard = styled.div`
   }
 `;
 
-const TechStack = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: ${theme.spacing.sm};
-  margin-top: ${theme.spacing.md};
-
-  span {
-    background: ${theme.colors.primary};
-    color: ${theme.colors.text.light};
-    padding: ${theme.spacing.xs} ${theme.spacing.sm};
-    border-radius: ${theme.borderRadius.sm};
-    font-size: ${theme.fontSizes.sm};
-    font-weight: 500;
-  }
-`;
-
-const ActionButton = styled.button`
-  background: ${theme.colors.accent};
-  color: ${theme.colors.text.light};
-  border: none;
-  padding: ${theme.spacing.md} ${theme.spacing.lg};
-  border-radius: ${theme.borderRadius.md};
-  font-size: ${theme.fontSizes.md};
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: ${theme.spacing.lg};
-
-  &:hover {
-    background: ${theme.colors.primary};
-    transform: translateY(-2px);
-  }
-
-  @media (max-width: ${theme.breakpoints.sm}) {
-    width: 100%;
-    padding: ${theme.spacing.md};
-  }
-`;
-
 const SectorsSection = styled.section`
   background: ${theme.colors.surface};
   padding: ${theme.spacing['4xl']} 0;
@@ -232,18 +193,10 @@ export const Products = () => {
     const benefitsData = t('products.katip.benefits.list', { returnObjects: true });
     const benefits = Array.isArray(benefitsData) ? benefitsData : [];
 
-    const techStack = [
-      'React', 'Node.js', 'PostgreSQL', 'Docker', 
-      'AWS', 'TypeScript', 'REST API', 'WebSocket'
-    ];
-
     const sectors = [
-      { name: t('sectors.healthcare'), icon: '✚' },
       { name: t('sectors.construction'), icon: '▲' },
-      { name: t('sectors.manufacturing'), icon: '■' },
-      { name: t('sectors.finance'), icon: '◇' },
-      { name: t('sectors.education'), icon: '▼' },
-      { name: t('sectors.retail'), icon: '◆' }
+      { name: t('sectors.software'), icon: '◆' },
+      { name: t('sectors.consulting'), icon: '◇' }
     ];
 
     return (
@@ -285,18 +238,6 @@ export const Products = () => {
                   </div>
                 </ProductGrid>
 
-                <div className="tech-stack">
-                  <h3>{t('products.katip.technology')}</h3>
-                  <TechStack>
-                    {techStack.map((tech, index) => (
-                      <span key={index}>{tech}</span>
-                    ))}
-                  </TechStack>
-                </div>
-
-                <ActionButton>
-                  {t('products.katip.action')}
-                </ActionButton>
               </ProductContent>
             </ProductCard>
           </Container>

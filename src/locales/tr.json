@@ -26,6 +26,9 @@
   "products": {
     "title": "Ürünlerimiz",
     "subtitle": "İş süreçlerinizi optimize eden, modern ve güvenilir yazılım çözümleri",
+    "sectors": {
+      "title": "Hizmet Verdiğimiz Sektörler"
+    },
     "katip": {
       "title": "Katip Otomasyonu",
       "subtitle": "OSGB Merkezi Yönetim ve Otomasyon Sistemi",
@@ -161,12 +164,9 @@
   },
   "sectors": {
     "title": "Hizmet Verdiğimiz Sektörler",
-    "healthcare": "Sağlık",
-    "construction": "İnşaat",
-    "manufacturing": "İmalat",
-    "finance": "Finans",
-    "education": "Eğitim",
-    "retail": "Perakende"
+  "construction": "İnşaat",
+  "software": "Yazılım Geliştirme",
+  "consulting": "Danışmanlık"
   },
   "contact": {
     "title": "İletişim",
