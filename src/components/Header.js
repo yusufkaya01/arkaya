@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -10,7 +10,8 @@ const HeaderContainer = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  z-index: ${theme.zIndex.sticky};
+  /* Ensure mobile menu renders above overlay */
+  z-index: ${theme.zIndex.modal + 2};
   background: rgba(255, 255, 255, 1.0) !important;
   backdrop-filter: none;
   transition: all 0.3s ease;
@@ -67,7 +68,8 @@ const NavLinks = styled.div`
     gap: ${theme.spacing['2xl']};
     transform: ${props => props.$isOpen ? 'translateX(0)' : 'translateX(-100%)'};
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: ${theme.zIndex.modal};
+  /* Sit above overlay and other layers explicitly */
+  z-index: 10001;
     
     /* Ensure mobile menu is clickable */
     pointer-events: ${props => props.$isOpen ? 'auto' : 'none'};
@@ -230,6 +232,8 @@ const Overlay = styled(motion.div)`
   background: rgba(0, 0, 0, 0.5);
   z-index: ${theme.zIndex.overlay};
   display: none;
+  /* Allow clicks to pass through to menu links if needed */
+  pointer-events: auto;
 
   @media (max-width: ${theme.breakpoints.lg}) {
     display: block;
@@ -241,7 +245,6 @@ export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -255,20 +258,14 @@ export const Header = () => {
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
+  document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+  document.body.style.overflow = '';
     }
 
     // Cleanup on unmount
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+  document.body.style.overflow = '';
     };
   }, [mobileMenuOpen]);
 
@@ -289,6 +286,12 @@ export const Header = () => {
     };
   }, [mobileMenuOpen]);
 
+  // Close mobile menu when route changes (let Links navigate)
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
   const navItems = [
     { key: 'home', path: '/' },
     { key: 'about', path: '/about' },
@@ -305,15 +308,7 @@ export const Header = () => {
     setMobileMenuOpen(false);
   };
 
-  // Handle link clicks to ensure menu closes and navigation works
-  const handleNavLinkClick = (e, path) => {
-    e.preventDefault();
-    console.log('Nav link clicked:', path);
-    closeMobileMenu();
-    setTimeout(() => {
-      navigate(path);
-    }, 300); // Delay to allow menu to animate out
-  };
+  // Links handle navigation; menu closes on route change (see effect above).
 
   const handleMobileMenuToggle = (e) => {
     // Don't prevent default here - it might interfere
@@ -334,13 +329,12 @@ export const Header = () => {
             <img src="/logo_company-name-right-side-of-logo.png" alt="Arkaya" />
           </Logo>
 
-          <NavLinks $isOpen={mobileMenuOpen}>
+          <NavLinks id="mobile-nav" $isOpen={mobileMenuOpen}>
             {navItems.map((item) => (
               <NavLink
                 key={item.key}
                 to={item.path}
                 $active={location.pathname === item.path}
-                onClick={(e) => handleNavLinkClick(e, item.path)}
               >
                 {t(`navigation.${item.key}`)}
               </NavLink>
@@ -366,7 +360,13 @@ export const Header = () => {
               )}
             </LanguageSelector>
 
-            <MobileMenuButton onClick={handleMobileMenuToggle}>
+            <MobileMenuButton
+              type="button"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-nav"
+              onClick={handleMobileMenuToggle}
+            >
               <div style={{
                 transform: mobileMenuOpen ? 'rotate(45deg)' : 'rotate(0)',
                 transformOrigin: '1px'
