@@ -1,0 +1,205 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "products": "Products",
+    "contact": "Contact",
+    "sectors": "Sectors"
+  },
+  "hero": {
+    "title": "Expert Solutions in Construction, Contracting, and Technology Consulting",
+    "subtitle": "Arkaya delivers construction edge protection systems, comprehensive contracting services, and technology consulting to bring your projects to life safely and efficiently.",
+    "cta": "Learn More",
+    "contactUs": "Contact Us"
+  },
+  "about": {
+    "title": "About Arkaya",
+    "description": "Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi is a leading company specializing in construction, contracting, technology consulting, and software development, offering innovative solutions. We make a difference in the industry with construction edge protection systems, comprehensive contracting services, and digital transformation solutions.",
+    "mission": "Our Mission",
+    "missionText": "To elevate safety standards in the construction industry and develop technology-focused solutions that ensure our clients' projects achieve success.",
+    "vision": "Our Vision",
+    "visionText": "To be Turkey's leading company in construction, contracting, and technology consulting, and achieve a strong position in international markets.",
+    "values": "Our Values",
+    "valuesText": "Safety, Quality, Innovation, Reliability, Customer Satisfaction, and Continuous Development"
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Modern and reliable software solutions that optimize your business processes",
+    "katip": {
+      "title": "Katip Otomasyonu",
+      "subtitle": "OSGB Central Management and Automation System",
+      "description": "A comprehensive automation solution developed specifically for OSGB (Occupational Health and Safety Centers). It automates daily tasks, manages workflows, and increases operational efficiency.",
+      "features": {
+        "title": "Key Features",
+        "list": [
+          "Employee health tracking and management",
+          "Automatic report generation",
+          "Appointment and schedule management",
+          "Document management system",
+          "Compliance and regulatory tracking",
+          "Real-time dashboard and analytics"
+        ]
+      },
+      "benefits": {
+        "title": "Benefits",
+        "list": [
+          {
+            "title": "Time Saving",
+            "description": "Save hours daily by automating your manual processes"
+          },
+          {
+            "title": "Error Minimization",
+            "description": "Minimize human errors and ensure reliability"
+          },
+          {
+            "title": "Regulatory Compliance",
+            "description": "Reporting and tracking systems compliant with current regulations"
+          },
+          {
+            "title": "Mobile Access",
+            "description": "Access your system from anywhere, anytime"
+          }
+        ]
+      },
+      "technologies": {
+        "title": "Technologies Used"
+      },
+      "visit": "Visit Product Website",
+      "demo": "Request Demo"
+    },
+    "sectorsDescription": "We serve many sectors with our solutions"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "We develop custom solutions for your business needs and support you on your digital transformation journey.",
+    "sectionTitle": "Our Services",
+    "sectionSubtitle": "We provide the most suitable solutions using modern technologies",
+    "construction": {
+      "title": "Construction & Contracting",
+      "description": "Comprehensive construction and contracting services for residential, commercial, and industrial projects. We bring your projects to life with modern technologies and high-quality standards.",
+      "features": [
+        "Residential Projects",
+        "Commercial Buildings",
+        "Industrial Facilities",
+        "Renovation Projects",
+        "Project Management",
+        "Quality Control"
+      ]
+    },
+    "edgeProtection": {
+      "title": "Construction Edge Protection Systems",
+      "description": "Certified edge protection systems compliant with workplace safety standards. We provide durable and reliable solutions that ensure safety when working at heights."
+    },
+    "automation": {
+      "title": "Construction Technology Consulting",
+      "description": "We provide expert consulting services on technology integration, digital transformation, and modernization of business processes in the construction industry.",
+      "features": [
+        "Construction Project Management Systems",
+        "Safety Technology Consulting",
+        "Construction Material Management",
+        "Project Tracking and Reporting",
+        "Quality Control Systems",
+        "Construction Process Optimization"
+      ]
+    },
+    "consulting": {
+      "title": "Technology Consulting",
+      "description": "Expert consulting services in construction and software technologies. Digital transformation, process optimization, and technology strategy development.",
+      "features": [
+        "Digital Strategy Consulting",
+        "Technology Selection",
+        "Process Analysis",
+        "Project Planning",
+        "Training and Support",
+        "Continuous Improvement"
+      ]
+    },
+    "software": {
+      "title": "Software Development",
+      "description": "Custom software solutions for the construction industry and business processes. We develop automation systems tailored to industry needs using modern technologies.",
+      "features": [
+        "Web Application Development",
+        "Mobile Application Development",
+        "E-commerce Website Design",
+        "API and Backend Development",
+        "Database Design",
+        "System Integration"
+      ]
+    },
+    "process": {
+      "title": "Our Work Process",
+      "subtitle": "We manage your projects with a professional approach from start to finish",
+      "steps": [
+        {
+          "title": "Analysis",
+          "description": "We analyze your needs and determine the most suitable solution"
+        },
+        {
+          "title": "Planning",
+          "description": "We prepare a detailed project plan and determine timeline and resources"
+        },
+        {
+          "title": "Development",
+          "description": "We develop your solution using the latest technologies"
+        },
+        {
+          "title": "Testing",
+          "description": "We conduct comprehensive tests to guarantee quality"
+        },
+        {
+          "title": "Delivery",
+          "description": "We deliver your project and provide user training"
+        },
+        {
+          "title": "Support",
+          "description": "We stand by you with continuous support and maintenance services"
+        }
+      ]
+    },
+    "contactButton": "Contact Us"
+  },
+  "sectors": {
+    "title": "Sectors We Serve",
+    "healthcare": "Healthcare",
+    "construction": "Construction",
+    "manufacturing": "Manufacturing",
+    "finance": "Finance",
+    "education": "Education",
+    "retail": "Retail"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us for your projects and questions",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message"
+    },
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved.",
+    "copyright": "Copyright"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "close": "Close",
+    "readMore": "Read More",
+    "learnMore": "Learn More"
+  }
+}

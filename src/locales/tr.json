@@ -1,0 +1,205 @@
+{
+  "navigation": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetler",
+    "products": "Ürünler",
+    "contact": "İletişim",
+    "sectors": "Sektörler"
+  },
+  "hero": {
+    "title": "İnşaat, Müteahhitlik ve Teknoloji Danışmanlığında Uzman Çözümler",
+    "subtitle": "Arkaya, inşaat kenar koruma sistemleri, kapsamlı müteahhitlik hizmetleri ve teknoloji danışmanlığı ile projelerinizi güvenli ve verimli şekilde hayata geçirmektedir.",
+    "cta": "Daha Fazla Bilgi",
+    "contactUs": "İletişime Geçin"
+  },
+  "about": {
+    "title": "Arkaya Hakkında",
+    "description": "Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi, inşaat, müteahhitlik, teknoloji danışmanlığı ve yazılım geliştirme alanlarında uzmanlaşmış, yenilikçi çözümler sunan önder bir şirkettir. İnşaat kenar koruma sistemleri, kapsamlı müteahhitlik hizmetleri ve dijital dönüşüm çözümleri ile sektörde fark yaratmaktayız.",
+    "mission": "Misyonumuz",
+    "missionText": "İnşaat sektöründe güvenlik standartlarını yükselten, teknoloji odaklı çözümler geliştirerek müşterilerimizin projelerini başarıya ulaştırmak.",
+    "vision": "Vizyonumuz",
+    "visionText": "İnşaat, müteahhitlik ve teknoloji danışmanlığı alanlarında Türkiye'nin önder şirketi olmak ve uluslararası pazarlarda güçlü bir konuma erişmek.",
+    "values": "Değerlerimiz",
+    "valuesText": "Güvenlik, Kalite, İnovasyon, Güvenilirlik, Müşteri Memnuniyeti ve Sürekli Gelişim"
+  },
+  "products": {
+    "title": "Ürünlerimiz",
+    "subtitle": "İş süreçlerinizi optimize eden, modern ve güvenilir yazılım çözümleri",
+    "katip": {
+      "title": "Katip Otomasyonu",
+      "subtitle": "OSGB Merkezi Yönetim ve Otomasyon Sistemi",
+      "description": "OSGB (İş Sağlığı ve Güvenliği Merkezleri) için özel olarak geliştirilmiş kapsamlı bir otomasyon çözümü. Günlük işleri otomatikleştirir, iş akışlarını yönetir ve operasyonel verimliliği artırır.",
+      "features": {
+        "title": "Temel Özellikler",
+        "list": [
+          "Çalışan sağlığı takibi ve yönetimi",
+          "Otomatik rapor oluşturma",
+          "Randevu ve program yönetimi",
+          "Doküman yönetim sistemi",
+          "Uyumluluk ve mevzuat takibi",
+          "Gerçek zamanlı dashboard ve analitik"
+        ]
+      },
+      "benefits": {
+        "title": "Faydalar",
+        "list": [
+          {
+            "title": "Zaman Tasarrufu",
+            "description": "Manuel işlemlerinizi otomatikleştirerek günde saatler kazanın"
+          },
+          {
+            "title": "Hata Minimizasyonu", 
+            "description": "İnsan kaynaklı hataları minimuma indirerek güvenilirlik sağlayın"
+          },
+          {
+            "title": "Mevzuat Uyumu",
+            "description": "Güncel mevzuata uygun raporlama ve takip sistemleri"
+          },
+          {
+            "title": "Mobil Erişim",
+            "description": "Her yerden, her zaman sisteminize erişim imkanı"
+          }
+        ]
+      },
+      "technologies": {
+        "title": "Kullanılan Teknolojiler"
+      },
+      "visit": "Ürün Web Sitesini Ziyaret Et",
+      "demo": "Demo Talep Et"
+    },
+    "sectorsDescription": "Çözümlerimizle birçok sektöre hizmet veriyoruz"
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "subtitle": "İş ihtiyaçlarınıza özel çözümler geliştiriyor, dijital dönüşüm yolculuğunuzda yanınızda oluyoruz.",
+    "sectionTitle": "Hizmetlerimiz",
+    "sectionSubtitle": "Modern teknolojiler kullanarak size en uygun çözümleri sunuyoruz",
+    "construction": {
+      "title": "İnşaat ve Müteahhitlik",
+      "description": "Konut, ticari ve endüstriyel projelerde kapsamlı inşaat ve müteahhitlik hizmetleri. Modern teknolojiler ve yüksek kalite standartları ile projelerinizi hayata geçiriyoruz.",
+      "features": [
+        "Konut Projeleri",
+        "Ticari Yapılar",
+        "Endüstriyel Tesisler",
+        "Renovasyon Projeleri",
+        "Proje Yönetimi",
+        "Kalite Kontrol"
+      ]
+    },
+    "edgeProtection": {
+      "title": "İnşaat Kenar Koruma Sistemleri",
+      "description": "İş güvenliği standartlarına uygun, sertifikalı kenar koruma sistemleri. Yüksekte çalışma güvenliğini sağlayan dayanıklı ve güvenilir çözümler sunuyoruz."
+    },
+    "automation": {
+      "title": "İnşaat Teknoloji Danışmanlığı",
+      "description": "İnşaat sektöründe teknoloji entegrasyonu, dijital dönüşüm ve iş süreçlerinin modernizasyonu konularında uzman danışmanlık hizmetleri sunuyoruz.",
+      "features": [
+        "İnşaat Proje Yönetim Sistemleri",
+        "Güvenlik Teknolojileri Danışmanlığı",
+        "İnşaat Malzeme Yönetimi",
+        "Proje Takip ve Raporlama",
+        "Kalite Kontrol Sistemleri",
+        "İnşaat Süreç Optimizasyonu"
+      ]
+    },
+    "consulting": {
+      "title": "Teknoloji Danışmanlığı",
+      "description": "İnşaat ve yazılım teknolojileri konusunda uzman danışmanlık hizmetleri. Dijital dönüşüm, süreç optimizasyonu ve teknoloji stratejileri geliştirme.",
+      "features": [
+        "Dijital Strateji Danışmanlığı",
+        "Teknoloji Seçimi",
+        "Süreç Analizi",
+        "Proje Planlama",
+        "Eğitim ve Destek",
+        "Sürekli İyileştirme"
+      ]
+    },
+    "software": {
+      "title": "Yazılım Geliştirme",
+      "description": "İnşaat sektörü ve iş süreçleri için özel yazılım çözümleri. Modern teknolojiler kullanarak sektörel ihtiyaçlara uygun otomasyon sistemleri geliştiriyoruz.",
+      "features": [
+        "Web Uygulaması Geliştirme",
+        "Mobil Uygulama Geliştirme",
+        "E-ticaret Web Sitesi Tasarımı",
+        "API ve Backend Geliştirme",
+        "Veritabanı Tasarımı",
+        "Sistem Entegrasyonu"
+      ]
+    },
+    "process": {
+      "title": "Çalışma Sürecimiz",
+      "subtitle": "Projelerinizi baştan sona profesyonel bir yaklaşımla yönetiyoruz",
+      "steps": [
+        {
+          "title": "Analiz",
+          "description": "İhtiyaçlarınızı analiz eder ve en uygun çözümü belirleriz"
+        },
+        {
+          "title": "Planlama",
+          "description": "Detaylı proje planı hazırlayıp timeline ve kaynakları belirleriz"
+        },
+        {
+          "title": "Geliştirme",
+          "description": "En son teknolojiler kullanarak çözümünüzü geliştiririz"
+        },
+        {
+          "title": "Test",
+          "description": "Kapsamlı testler yaparak kaliteyi garanti altına alırız"
+        },
+        {
+          "title": "Teslimat",
+          "description": "Projenizi teslim eder ve kullanıcı eğitimi sağlarız"
+        },
+        {
+          "title": "Destek",
+          "description": "Sürekli destek ve bakım hizmetleri sunarak yanınızda oluruz"
+        }
+      ]
+    },
+    "contactButton": "İletişime Geçin"
+  },
+  "sectors": {
+    "title": "Hizmet Verdiğimiz Sektörler",
+    "healthcare": "Sağlık",
+    "construction": "İnşaat",
+    "manufacturing": "İmalat",
+    "finance": "Finans",
+    "education": "Eğitim",
+    "retail": "Perakende"
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Projeleriniz ve sorularınız için bizimle iletişime geçin",
+    "form": {
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "subject": "Konu",
+      "message": "Mesaj",
+      "send": "Mesaj Gönder"
+    },
+    "info": {
+      "address": "Adres",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "footer": {
+    "company": "Şirket",
+    "quickLinks": "Hızlı Bağlantılar",
+    "contact": "İletişim",
+    "followUs": "Bizi Takip Edin",
+    "rights": "Tüm hakları saklıdır.",
+    "copyright": "Telif Hakkı"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "retry": "Tekrar Dene",
+    "close": "Kapat",
+    "readMore": "Devamını Oku",
+    "learnMore": "Daha Fazla Bilgi"
+  }
+}

@@ -1,0 +1,449 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import { motion, AnimatePresence } from 'framer-motion';
+import { theme } from '../styles/theme';
+
+const HeaderContainer = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: ${theme.zIndex.sticky};
+  background: rgba(255, 255, 255, 1.0) !important;
+  backdrop-filter: none;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: none;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: ${theme.spacing.md} 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: ${theme.spacing.lg};
+  padding-right: ${theme.spacing.lg};
+
+  @media (max-width: ${theme.breakpoints.sm}) {
+    padding-left: ${theme.spacing.md};
+    padding-right: ${theme.spacing.md};
+  }
+`;
+
+const Logo = styled(Link)`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: ${theme.colors.primary};
+  font-weight: 700;
+  font-size: ${theme.fontSizes.xl};
+
+  img {
+    height: 40px;
+    margin-right: ${theme.spacing.sm};
+  }
+`;
+
+const NavLinks = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${theme.spacing.xl};
+
+  @media (max-width: ${theme.breakpoints.lg}) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: ${theme.spacing['2xl']};
+    transform: ${props => props.$isOpen ? 'translateX(0)' : 'translateX(-100%)'};
+    transition: transform 0.3s ease;
+    z-index: ${theme.zIndex.modal};
+    
+    /* Ensure mobile menu is always interactive when open */
+    pointer-events: auto;
+    
+    /* Add padding for better touch targets */
+    padding: ${theme.spacing['2xl']};
+    
+    /* Prevent scrolling on body when menu is open */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    
+    /* Ensure visibility */
+    visibility: ${props => props.$isOpen ? 'visible' : 'hidden'};
+  }
+`;
+
+const NavLink = styled(Link)`
+  color: ${props => props.$active ? theme.colors.accent : theme.colors.text.primary};
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${theme.colors.accent};
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: ${props => props.$active ? '100%' : '0'};
+    height: 2px;
+    background: ${theme.colors.accent};
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  /* Desktop navigation - hide on mobile */
+  &.desktop-nav {
+    @media (max-width: ${theme.breakpoints.lg}) {
+      display: none;
+    }
+  }
+
+  /* Mobile navigation styles */
+  &.mobile-nav {
+    font-size: ${theme.fontSizes.lg};
+    padding: ${theme.spacing.lg} ${theme.spacing.xl};
+    border-radius: ${theme.borderRadius.md};
+    min-height: 56px;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    
+    /* Show only on mobile */
+    @media (min-width: ${theme.breakpoints.lg}) {
+      display: none;
+    }
+    
+    /* Ensure navigation is always clickable on mobile */
+    pointer-events: auto !important;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    
+    &:hover, &:focus, &:active {
+      background: ${theme.colors.surface};
+      outline: none;
+      transform: scale(1.02);
+      color: ${theme.colors.accent};
+    }
+    
+    /* Remove the ::after element on mobile for better touch */
+    &::after {
+      display: none;
+    }
+  }
+`;
+
+const MobileNavButton = styled.button`
+  color: ${props => props.$active ? theme.colors.accent : theme.colors.text.primary};
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+  font-family: inherit;
+  font-size: ${theme.fontSizes.lg};
+  padding: ${theme.spacing.lg} ${theme.spacing.xl};
+  border-radius: ${theme.borderRadius.md};
+  min-height: 56px;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  
+  /* Show only on mobile */
+  @media (min-width: ${theme.breakpoints.lg}) {
+    display: none;
+  }
+  
+  /* Enhanced mobile touch handling */
+  pointer-events: auto !important;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  
+  &:hover, &:focus, &:active {
+    background: ${theme.colors.surface};
+    outline: none;
+    color: ${theme.colors.accent};
+  }
+  
+  /* Ensure button stays in place and responsive */
+  &:active {
+    transform: scale(0.98);
+  }
+`;
+
+const LanguageSelector = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${theme.spacing.sm};
+`;
+
+const LanguageButton = styled.button`
+  background: ${props => props.$active ? theme.colors.accent : 'transparent'};
+  color: ${props => props.$active ? theme.colors.text.light : theme.colors.text.primary};
+  border: 1px solid ${theme.colors.border};
+  padding: ${theme.spacing.xs} ${theme.spacing.sm};
+  border-radius: ${theme.borderRadius.sm};
+  font-size: ${theme.fontSizes.sm};
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: ${theme.colors.accent};
+    color: ${theme.colors.text.light};
+  }
+`;
+
+const MobileMenuButton = styled.button`
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: ${theme.zIndex.modal + 1};
+  padding: 4px;
+  
+  /* Better touch target */
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+  
+  /* Ensure button is always clickable */
+  pointer-events: auto;
+
+  div {
+    width: 100%;
+    height: 2px;
+    background: ${theme.colors.primary};
+    transition: all 0.3s ease;
+    transform-origin: 1px;
+  }
+
+  @media (max-width: ${theme.breakpoints.lg}) {
+    display: flex;
+  }
+  
+  &:focus {
+    outline: 2px solid ${theme.colors.accent};
+    outline-offset: 2px;
+  }
+`;
+
+const Overlay = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: ${theme.zIndex.overlay};
+  display: none;
+
+  @media (max-width: ${theme.breakpoints.lg}) {
+    display: block;
+  }
+`;
+
+export const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  }, [mobileMenuOpen]);
+
+  const navItems = [
+    { key: 'home', path: '/' },
+    { key: 'about', path: '/about' },
+    { key: 'services', path: '/services' },
+    { key: 'products', path: '/products' },
+    { key: 'contact', path: '/contact' }
+  ];
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
+  // Handle link clicks to ensure menu closes and navigation works
+  const handleNavLinkClick = (e, path) => {
+    console.log('Nav link clicked, path:', path, 'current location:', location.pathname);
+    
+    // Prevent any default behavior
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
+    // Close the mobile menu first
+    setMobileMenuOpen(false);
+    
+    // Small delay to ensure menu closes, then navigate
+    setTimeout(() => {
+      console.log('Navigating to:', path);
+      navigate(path);
+    }, 100);
+  };
+
+  const handleMobileMenuToggle = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Mobile menu toggle clicked, current state:', mobileMenuOpen);
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  return (
+    <>
+      <HeaderContainer $scrolled={scrolled}>
+        <Nav>
+          <Logo to="/">
+            <img src="/logo_company-name-right-side-of-logo.png" alt="Arkaya" />
+          </Logo>
+
+          <NavLinks $isOpen={mobileMenuOpen}>
+            {navItems.map((item) => (
+              <React.Fragment key={item.key}>
+                {/* Desktop navigation */}
+                <NavLink
+                  to={item.path}
+                  $active={location.pathname === item.path}
+                  className="desktop-nav"
+                >
+                  {t(`navigation.${item.key}`)}
+                </NavLink>
+                
+                {/* Mobile navigation */}
+                <MobileNavButton
+                  $active={location.pathname === item.path}
+                  onClick={(e) => handleNavLinkClick(e, item.path)}
+                  onTouchStart={(e) => {
+                    console.log('Touch start on mobile nav:', item.path);
+                  }}
+                  onTouchEnd={(e) => {
+                    console.log('Touch end on mobile nav:', item.path);
+                    e.preventDefault();
+                    handleNavLinkClick(e, item.path);
+                  }}
+                  data-path={item.path}
+                >
+                  {t(`navigation.${item.key}`)}
+                </MobileNavButton>
+              </React.Fragment>
+            ))}
+          </NavLinks>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.md }}>
+            <LanguageSelector>
+              {i18n.language === 'tr' ? (
+                <LanguageButton
+                  $active={false}
+                  onClick={() => changeLanguage('en')}
+                >
+                  EN
+                </LanguageButton>
+              ) : (
+                <LanguageButton
+                  $active={false}
+                  onClick={() => changeLanguage('tr')}
+                >
+                  TR
+                </LanguageButton>
+              )}
+            </LanguageSelector>
+
+            <MobileMenuButton onClick={handleMobileMenuToggle}>
+              <div style={{
+                transform: mobileMenuOpen ? 'rotate(45deg)' : 'rotate(0)',
+                transformOrigin: '1px'
+              }} />
+              <div style={{
+                opacity: mobileMenuOpen ? '0' : '1',
+                transform: mobileMenuOpen ? 'translateX(20px)' : 'translateX(0)'
+              }} />
+              <div style={{
+                transform: mobileMenuOpen ? 'rotate(-45deg)' : 'rotate(0)',
+                transformOrigin: '1px'
+              }} />
+            </MobileMenuButton>
+          </div>
+        </Nav>
+      </HeaderContainer>
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <Overlay
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeMobileMenu}
+          />
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
