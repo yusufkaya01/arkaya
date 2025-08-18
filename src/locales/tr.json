@@ -8,8 +8,8 @@
     "sectors": "Sektörler"
   },
   "hero": {
-    "title": "İnşaat, Müteahhitlik ve Teknoloji Danışmanlığında Uzman Çözümler",
-    "subtitle": "Arkaya, inşaat kenar koruma sistemleri, kapsamlı müteahhitlik hizmetleri ve teknoloji danışmanlığı ile projelerinizi güvenli ve verimli şekilde hayata geçirmektedir.",
+  "title": "Sektörler Arası Yenilikçi Çözümler",
+  "subtitle": "Yazılım geliştirmeden danışmanlığa ve inşaat teknolojilerine uzanan ölçeklenebilir çözümler sunuyor; karmaşık ihtiyaçları ölçülebilir sonuçlara dönüştürüyoruz.",
     "cta": "Daha Fazla Bilgi",
     "contactUs": "İletişime Geçin"
   },
@@ -58,10 +58,6 @@
           {
             "title": "Mevzuat Uyumu",
             "description": "Güncel mevzuata uygun raporlama ve takip sistemleri"
-          },
-          {
-            "title": "Mobil Erişim",
-            "description": "Her yerden, her zaman sisteminize erişim imkanı"
           }
         ]
       },
@@ -93,18 +89,6 @@
     "edgeProtection": {
       "title": "İnşaat Kenar Koruma Sistemleri",
       "description": "İş güvenliği standartlarına uygun, sertifikalı kenar koruma sistemleri. Yüksekte çalışma güvenliğini sağlayan dayanıklı ve güvenilir çözümler sunuyoruz."
-    },
-    "automation": {
-      "title": "İnşaat Teknoloji Danışmanlığı",
-      "description": "İnşaat sektöründe teknoloji entegrasyonu, dijital dönüşüm ve iş süreçlerinin modernizasyonu konularında uzman danışmanlık hizmetleri sunuyoruz.",
-      "features": [
-        "İnşaat Proje Yönetim Sistemleri",
-        "Güvenlik Teknolojileri Danışmanlığı",
-        "İnşaat Malzeme Yönetimi",
-        "Proje Takip ve Raporlama",
-        "Kalite Kontrol Sistemleri",
-        "İnşaat Süreç Optimizasyonu"
-      ]
     },
     "consulting": {
       "title": "Teknoloji Danışmanlığı",

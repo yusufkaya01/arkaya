@@ -191,12 +191,6 @@ export const Services = () => {
       features: t('services.construction.features', { returnObjects: true })
     },
     {
-      title: t('services.automation.title'),
-      description: t('services.automation.description'),
-      icon: '◆',
-      features: t('services.automation.features', { returnObjects: true })
-    },
-    {
       title: t('services.consulting.title'),
       description: t('services.consulting.description'),
       icon: '●',

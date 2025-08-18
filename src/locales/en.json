@@ -8,8 +8,8 @@
     "sectors": "Sectors"
   },
   "hero": {
-    "title": "Expert Solutions in Construction, Contracting, and Technology Consulting",
-    "subtitle": "Arkaya delivers construction edge protection systems, comprehensive contracting services, and technology consulting to bring your projects to life safely and efficiently.",
+  "title": "Innovative Solutions Across Industries",
+  "subtitle": "We deliver tailored, scalable solutions—from software development to consulting and construction technologies—turning complex challenges into measurable results.",
     "cta": "Learn More",
     "contactUs": "Contact Us"
   },
@@ -58,10 +58,6 @@
           {
             "title": "Regulatory Compliance",
             "description": "Reporting and tracking systems compliant with current regulations"
-          },
-          {
-            "title": "Mobile Access",
-            "description": "Access your system from anywhere, anytime"
           }
         ]
       },
@@ -93,18 +89,6 @@
     "edgeProtection": {
       "title": "Construction Edge Protection Systems",
       "description": "Certified edge protection systems compliant with workplace safety standards. We provide durable and reliable solutions that ensure safety when working at heights."
-    },
-    "automation": {
-      "title": "Construction Technology Consulting",
-      "description": "We provide expert consulting services on technology integration, digital transformation, and modernization of business processes in the construction industry.",
-      "features": [
-        "Construction Project Management Systems",
-        "Safety Technology Consulting",
-        "Construction Material Management",
-        "Project Tracking and Reporting",
-        "Quality Control Systems",
-        "Construction Process Optimization"
-      ]
     },
     "consulting": {
       "title": "Technology Consulting",

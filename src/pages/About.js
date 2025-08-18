@@ -146,9 +146,9 @@ export const About = () => {
   ];
 
   const stats = [
-    { number: '2024', label: 'Kuruluş Yılı' },
-    { number: '50+', label: 'Mutlu Müşteri' },
-    { number: '1', label: 'Ana Ürün' },
+    { number: '2025', label: 'Kuruluş' },
+    { number: '1200+', label: 'Mutlu Müşteri' },
+    { number: '2', label: 'Ana Ürün' },
     { number: '3', label: 'Ana Sektör' }
   ];
 

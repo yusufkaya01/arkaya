@@ -257,10 +257,6 @@ export const Home = () => {
       description: t('services.construction.description')
     },
     {
-      title: t('services.automation.title'),
-      description: t('services.automation.description')
-    },
-    {
       title: t('services.consulting.title'),
       description: t('services.consulting.description')
     }
