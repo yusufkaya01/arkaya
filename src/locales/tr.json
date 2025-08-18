@@ -31,7 +31,7 @@
     },
     "katip": {
       "title": "Katip Otomasyonu",
-      "subtitle": "OSGB Merkezi Yönetim ve Otomasyon Sistemi",
+  "subtitle": "OSGB Otomasyon Sistemi",
       "description": "OSGB (İş Sağlığı ve Güvenliği Merkezleri) için özel olarak geliştirilmiş kapsamlı bir otomasyon çözümü. Günlük işleri otomatikleştirir, iş akışlarını yönetir ve operasyonel verimliliği artırır.",
       "features": {
         "title": "Temel Özellikler",

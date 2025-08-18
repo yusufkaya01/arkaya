@@ -31,7 +31,7 @@
     },
     "katip": {
       "title": "Katip Otomasyonu",
-      "subtitle": "OSGB Central Management and Automation System",
+  "subtitle": "OSGB Automation System",
       "description": "A comprehensive automation solution developed specifically for OSGB (Occupational Health and Safety Centers). It automates daily tasks, manages workflows, and increases operational efficiency.",
       "features": {
         "title": "Key Features",

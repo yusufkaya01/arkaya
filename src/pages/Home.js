@@ -338,8 +338,8 @@ export const Home = () => {
                 color: theme.colors.text.light,
                 textAlign: 'center'
               }}>
-                <h4>Katip Otomasyonu</h4>
-                <p>OSGB Automation Solution</p>
+                <h4>{t('products.katip.title')}</h4>
+                <p>{t('products.katip.subtitle')}</p>
               </div>
             </ProductImage>
           </ProductCard>
