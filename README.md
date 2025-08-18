@@ -1,12 +1,12 @@
 # Arkaya Website
 
-Modern, responsive website for Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi built with React and TypeScript.
+Modern, responsive website for Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi built with React and JavaScript.
 
 ## Features
 
 - 🌍 **Bilingual Support**: Turkish and English language support with automatic browser detection
 - 📱 **Responsive Design**: Optimized for all device sizes
-- ⚡ **Modern Technologies**: Built with React 18, TypeScript, Styled Components
+- ⚡ **Modern Technologies**: Built with React 19, JavaScript, Styled Components
 - 🎨 **Beautiful Animations**: Smooth animations with Framer Motion
 - 🚀 **AWS Amplify Ready**: Configured for easy deployment on AWS Amplify
 - 📈 **SEO Optimized**: Meta tags, Open Graph, and structured data
@@ -14,9 +14,9 @@ Modern, responsive website for Arkaya Arge Yazılım İnşaat Ticaret Limited Ş
 
 ## Tech Stack
 
-- **Frontend**: React 18, TypeScript
+- **Frontend**: React 19, JavaScript
 - **Styling**: Styled Components, Custom Theme System
-- **Routing**: React Router v6
+- **Routing**: React Router
 - **Internationalization**: react-i18next
 - **Animations**: Framer Motion
 - **Deployment**: AWS Amplify
@@ -48,7 +48,7 @@ REACT_APP_PRODUCT_URL=https://www.katipotomasyonu.com/
 REACT_APP_PHONE=+90 501 544 85 44
 REACT_APP_WHATSAPP=905015448544
 REACT_APP_EMAIL=info@arkaya.com.tr
-REACT_APP_ADDRESS=Turkey
+REACT_APP_ADDRESS=Isparta, Türkiye
 ```
 
 ## Deployment to AWS Amplify
@@ -63,21 +63,22 @@ REACT_APP_ADDRESS=Turkey
 ```
 src/
 ├── components/          # Reusable components
-│   ├── Header.tsx
-│   └── Footer.tsx
+│   ├── Header.js
+│   └── Footer.js
 ├── pages/              # Page components
-│   ├── Home.tsx
-│   ├── About.tsx
-│   ├── Services.tsx
-│   ├── Products.tsx
-│   └── Contact.tsx
+│   ├── Home.js
+│   ├── About.js
+│   ├── Services.js
+│   ├── Products.js
+│   ├── ProductsSimple.js
+│   └── Contact.js
 ├── styles/             # Styling and themes
-│   ├── theme.ts
-│   └── GlobalStyles.ts
+│   ├── theme.js
+│   └── GlobalStyles.js
 ├── locales/            # Translation files
 │   ├── en.json
 │   └── tr.json
-└── i18n.ts            # Internationalization config
+└── i18n.js            # Internationalization config
 ```
 
 ## Features Overview
@@ -96,13 +97,11 @@ src/
 ### 🛠️ Services Page
 - Software development
 - Construction services
-- Business automation
 - Technology consulting
 
 ### 🔧 Products Page
 - Katip Otomasyonu detailed information
 - Features and benefits
-- Technology stack
 
 ### 📞 Contact Page
 - Contact form
