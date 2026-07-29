@@ -145,12 +145,8 @@ export const About = () => {
     }
   ];
 
-  const stats = [
-    { number: '2025', label: 'Kuruluş' },
-    { number: '1200+', label: 'Mutlu Müşteri' },
-    { number: '2', label: 'Ana Ürün' },
-    { number: '3', label: 'Ana Sektör' }
-  ];
+  const statsData = t('about.stats', { returnObjects: true });
+  const stats = Array.isArray(statsData) ? statsData : [];
 
   return (
     <PageContainer>
@@ -180,6 +176,7 @@ export const About = () => {
             >
               <h2>{t('about.title')}</h2>
               <p>{t('about.description')}</p>
+              <p>{t('about.description2')}</p>
             </motion.div>
 
             <motion.div
@@ -198,7 +195,7 @@ export const About = () => {
 
       <StatsSection>
         <Container>
-          <SectionTitle>Sayılarla Arkaya</SectionTitle>
+          <SectionTitle>{t('about.statsTitle')}</SectionTitle>
           <StatsGrid>
             {stats.map((stat, index) => (
               <StatCard
@@ -208,7 +205,7 @@ export const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3>{stat.number}</h3>
+                <h3>{stat.value}</h3>
                 <p>{stat.label}</p>
               </StatCard>
             ))}
@@ -218,9 +215,9 @@ export const About = () => {
 
       <Section>
         <Container>
-          <SectionTitle>Değerlerimiz</SectionTitle>
+          <SectionTitle>{t('about.valuesTitle')}</SectionTitle>
           <SectionSubtitle>
-            Arkaya olarak, iş yapış şeklimizi belirleyen temel değerlerimiz
+            {t('about.valuesSubtitle')}
           </SectionSubtitle>
           <ValuesGrid>
             {values.map((value, index) => (

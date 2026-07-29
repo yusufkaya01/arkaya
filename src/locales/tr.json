@@ -1,181 +1,197 @@
 {
   "navigation": {
     "home": "Ana Sayfa",
-    "about": "Hakkımızda",
-    "services": "Hizmetler",
     "products": "Ürünler",
-    "contact": "İletişim",
-    "sectors": "Sektörler"
+    "about": "Hakkımızda",
+    "contact": "İletişim"
   },
   "hero": {
-  "title": "Sektörler Arası Yenilikçi Çözümler",
-  "subtitle": "Yazılım geliştirmeden danışmanlığa ve inşaat teknolojilerine uzanan ölçeklenebilir çözümler sunuyor; karmaşık ihtiyaçları ölçülebilir sonuçlara dönüştürüyoruz.",
-    "cta": "Daha Fazla Bilgi",
+    "badge": "Kendi yazılım ürünlerimizi geliştiriyoruz",
+    "title": "İş sağlığı ve güvenliği sektörü için yazılım ürünleri",
+    "subtitle": "OSGB'ler ve İSG profesyonelleri için bulut tabanlı SaaS uygulamaları geliştiriyoruz. Ağ güvenliği ve 5651 loglama tarafında ise XLog satış bayisi olarak kurumların altyapısını koruyoruz.",
+    "cta": "Ürünlerimizi İnceleyin",
     "contactUs": "İletişime Geçin"
+  },
+  "home": {
+    "productsTitle": "Ürünlerimiz",
+    "productsSubtitle": "Geliştirdiğimiz iki SaaS uygulaması ve satış bayisi olduğumuz ağ güvenliği çözümü.",
+    "whyTitle": "Neden Arkaya?",
+    "whySubtitle": "Proje bazlı iş almıyoruz. Tüm mesaimizi kendi ürünlerimizi geliştirmeye ve desteklemeye ayırıyoruz.",
+    "why": [
+      {
+        "title": "Sektöre odaklı",
+        "description": "Genel amaçlı yazılım üretmiyoruz. Ürünlerimiz, İSG sahasının ve kurumsal ağ yönetiminin gerçek ihtiyaçlarına göre geliştirilir ya da seçilir."
+      },
+      {
+        "title": "Mevzuata uyumlu",
+        "description": "İSG-KATİP, KVKK ve 5651 gibi Türkiye'ye özgü yükümlülükler, ürün geliştirme ve ürün seçimi kararlarımızda baştan gözetilir."
+      },
+      {
+        "title": "Bulut tabanlı ve kurulumsuz",
+        "description": "SaaS ürünlerimiz tarayıcıdan çalışır. Sunucu, kurulum ve bakım yükü sizde değil bizde."
+      },
+      {
+        "title": "Türkçe destek",
+        "description": "Sorularınıza Türkçe yanıt alırsınız; destek ekibimiz ürünü geliştiren ekiple aynı çatı altında çalışır."
+      }
+    ],
+    "ctaTitle": "Hangi ürünün size uygun olduğundan emin değil misiniz?",
+    "ctaSubtitle": "Kurumunuzun ihtiyacını birlikte değerlendirelim, size en uygun çözümü önerelim.",
+    "ctaButton": "Bize Ulaşın"
   },
   "about": {
     "title": "Arkaya Hakkında",
-    "description": "Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi, inşaat, müteahhitlik, teknoloji danışmanlığı ve yazılım geliştirme alanlarında uzmanlaşmış, yenilikçi çözümler sunan önder bir şirkettir. İnşaat kenar koruma sistemleri, kapsamlı müteahhitlik hizmetleri ve dijital dönüşüm çözümleri ile sektörde fark yaratmaktayız.",
+    "description": "Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi, Isparta merkezli bir yazılım şirketidir. İş sağlığı ve güvenliği sektörü için bulut tabanlı SaaS uygulamaları ve kurumsal ağ güvenliği çözümleri geliştiriyoruz.",
+    "description2": "Proje bazlı yazılım işi almak yerine kendi ürünlerimize odaklanıyoruz: Katip Otomasyonu ve İSG Asistan'ı tek çatı altında geliştiriyor, güncelliyor ve destekliyoruz. Ağ güvenliği tarafında ise XLog satış bayisi olarak kurumlara güvenlik duvarı ve 5651 loglama çözümü sunuyoruz.",
     "mission": "Misyonumuz",
-    "missionText": "İnşaat sektöründe güvenlik standartlarını yükselten, teknoloji odaklı çözümler geliştirerek müşterilerimizin projelerini başarıya ulaştırmak.",
+    "missionText": "İSG profesyonellerinin zamanını evrak ve takip işlerinden kurtarmak; mevzuata uyumlu, güvenilir ve kullanması kolay yazılımlarla günlük işi hızlandırmak.",
     "vision": "Vizyonumuz",
-    "visionText": "İnşaat, müteahhitlik ve teknoloji danışmanlığı alanlarında Türkiye'nin önder şirketi olmak ve uluslararası pazarlarda güçlü bir konuma erişmek.",
+    "visionText": "Türkiye'de iş sağlığı ve güvenliği alanında ilk akla gelen yazılım şirketi olmak ve ürünlerimizi uluslararası pazarlara taşımak.",
     "values": "Değerlerimiz",
-    "valuesText": "Güvenlik, Kalite, İnovasyon, Güvenilirlik, Müşteri Memnuniyeti ve Sürekli Gelişim"
+    "valuesText": "Veri gizliliği, mevzuat uyumu, sadelik, güvenilirlik, sürekli gelişim ve müşteri memnuniyeti.",
+    "statsTitle": "Sayılarla Arkaya",
+    "stats": [
+      { "value": "2025", "label": "Kuruluş" },
+      { "value": "3", "label": "Sunduğumuz Ürün" },
+      { "value": "1200+", "label": "Mutlu Müşteri" },
+      { "value": "Isparta", "label": "Merkez" }
+    ],
+    "valuesTitle": "Değerlerimiz",
+    "valuesSubtitle": "Arkaya olarak iş yapış şeklimizi belirleyen temel ilkelerimiz"
   },
   "products": {
     "title": "Ürünlerimiz",
-    "subtitle": "İş süreçlerinizi optimize eden, modern ve güvenilir yazılım çözümleri",
-    "sectors": {
-      "title": "Hizmet Verdiğimiz Sektörler"
-    },
+    "subtitle": "İş sağlığı ve güvenliği süreçlerini ve kurumsal ağ güvenliğini yöneten üç ürün.",
+    "featuresTitle": "Öne Çıkan Özellikler",
+    "visit": "Ürün Web Sitesini Ziyaret Et",
+    "detail": "Detayları İncele",
+    "badgeOwn": "Kendi Ürünümüz",
+    "badgeReseller": "Satış Bayisi",
     "katip": {
-      "title": "Katip Otomasyonu",
-  "subtitle": "OSGB Otomasyon Sistemi",
-      "description": "OSGB (İş Sağlığı ve Güvenliği Merkezleri) için özel olarak geliştirilmiş kapsamlı bir otomasyon çözümü. Günlük işleri otomatikleştirir, iş akışlarını yönetir ve operasyonel verimliliği artırır.",
-      "features": {
-        "title": "Temel Özellikler",
-        "list": [
-          "Çalışan takibi ve yönetimi",
-          "Otomatik rapor oluşturma",
-          "Doküman yönetim sistemi",
-          "Uyumluluk ve mevzuat takibi",
-          "Gerçek zamanlı dashboard ve analitik"
-        ]
-      },
-      "benefits": {
-        "title": "Faydalar",
-        "list": [
-          {
-            "title": "Zaman Tasarrufu",
-            "description": "Manuel işlemlerinizi otomatikleştirerek günde saatler kazanın"
-          },
-          {
-            "title": "Hata Minimizasyonu", 
-            "description": "İnsan kaynaklı hataları minimuma indirerek güvenilirlik sağlayın"
-          },
-          {
-            "title": "Mevzuat Uyumu",
-            "description": "Güncel mevzuata uygun raporlama ve takip sistemleri"
-          }
-        ]
-      },
-      "technologies": {
-        "title": "Kullanılan Teknolojiler"
-      },
-      "visit": "Ürün Web Sitesini Ziyaret Et",
-      "demo": "Demo Talep Et"
-    },
-    "sectorsDescription": "Çözümlerimizle birçok sektöre hizmet veriyoruz"
-  },
-  "services": {
-    "title": "Hizmetlerimiz",
-    "subtitle": "İş ihtiyaçlarınıza özel çözümler geliştiriyor, dijital dönüşüm yolculuğunuzda yanınızda oluyoruz.",
-    "sectionTitle": "Hizmetlerimiz",
-    "sectionSubtitle": "Modern teknolojiler kullanarak size en uygun çözümleri sunuyoruz",
-    "construction": {
-      "title": "İnşaat ve Müteahhitlik",
-      "description": "Konut, ticari ve endüstriyel projelerde kapsamlı inşaat ve müteahhitlik hizmetleri. Modern teknolojiler ve yüksek kalite standartları ile projelerinizi hayata geçiriyoruz.",
+      "name": "Katip Otomasyonu",
+      "tagline": "İSG-KATİP için Chrome uzantısı",
+      "short": "İSG-KATİP üzerindeki atama, sözleşme ve raporlama işlemlerini otomatikleştiren tarayıcı uzantısı.",
+      "description": "Katip Otomasyonu, İSG-KATİP platformunda tek tek yapılan atama, sözleşme ve rapor işlemlerini otomatikleştiren bir Chrome uzantısıdır. İş güvenliği uzmanı, işyeri hekimi ve diğer sağlık personeli işlemlerinde saatler süren tekrarlı işi dakikalara indirir.",
       "features": [
-        "Konut Projeleri",
-        "Ticari Yapılar",
-        "Endüstriyel Tesisler",
-        "Renovasyon Projeleri",
-        "Proje Yönetimi",
-        "Kalite Kontrol"
+        "Toplu atama ve sözleşme işlemleri",
+        "Otomatik raporlama ve Excel çıktıları",
+        "İSG-KATİP ekranlarıyla doğrudan çalışma",
+        "Lisans doğrulama ve güvenli erişim",
+        "Otomatik güncellenen uzantı",
+        "Türkçe arayüz ve teknik destek"
       ]
     },
-    "edgeProtection": {
-      "title": "İnşaat Kenar Koruma Sistemleri",
-      "description": "İş güvenliği standartlarına uygun, sertifikalı kenar koruma sistemleri. Yüksekte çalışma güvenliğini sağlayan dayanıklı ve güvenilir çözümler sunuyoruz."
-    },
-    "consulting": {
-      "title": "Teknoloji Danışmanlığı",
-      "description": "İnşaat ve yazılım teknolojileri konusunda uzman danışmanlık hizmetleri. Dijital dönüşüm, süreç optimizasyonu ve teknoloji stratejileri geliştirme.",
+    "isgAsistan": {
+      "name": "İSG Asistan",
+      "tagline": "OSGB'ler için bulut tabanlı yönetim platformu",
+      "short": "Firma ve çalışan takibinden evrak üretimine, muhasebeden saha planlamasına tüm OSGB süreçleri tek panelde.",
+      "description": "İSG Asistan, bir OSGB'nin günlük işini tek panelde toplayan bulut tabanlı bir yönetim platformudur. Dağınık tablolar ve ayrı programlar yerine; firma, çalışan, evrak, muhasebe ve saha planlaması aynı yerde yönetilir. Web tabanlıdır, kurulum gerektirmez.",
       "features": [
-        "Dijital Strateji Danışmanlığı",
-        "Teknoloji Seçimi",
-        "Süreç Analizi",
-        "Proje Planlama",
-        "Eğitim ve Destek",
-        "Sürekli İyileştirme"
+        "Evrak ve dokümantasyon üretimi",
+        "Firma ve çalışan yönetimi",
+        "Muhasebe, tahsilat ve cari takibi",
+        "Görev ve saha ziyareti planlama",
+        "İSG-KATİP senkronizasyonu",
+        "Firmalar için müşteri portalı",
+        "NACE kodu ve tehlike sınıfı sorgulama",
+        "Rol ve yetki yönetimi, çok şubeli yapı"
       ]
     },
-    "software": {
-      "title": "Yazılım Geliştirme",
-      "description": "İnşaat sektörü ve iş süreçleri için özel yazılım çözümleri. Modern teknolojiler kullanarak sektörel ihtiyaçlara uygun otomasyon sistemleri geliştiriyoruz.",
-      "features": [
-        "Web Uygulaması Geliştirme",
-        "Mobil Uygulama Geliştirme",
-        "E-ticaret Web Sitesi Tasarımı",
-        "API ve Backend Geliştirme",
-        "Veritabanı Tasarımı",
-        "Sistem Entegrasyonu"
-      ]
-    },
-    "process": {
-      "title": "Çalışma Sürecimiz",
-      "subtitle": "Projelerinizi baştan sona profesyonel bir yaklaşımla yönetiyoruz",
-      "steps": [
+    "xlog": {
+      "name": "XLog",
+      "tagline": "UTM güvenlik duvarı ve 5651 loglama",
+      "short": "Kurumsal ağınızı koruyan, 5651'e uygun log kaydı tutan UTM güvenlik duvarı. Arkaya, XLog satış bayisidir.",
+      "description": "XLog, kurumsal ağınızı saldırılara karşı koruyan ve 5651 sayılı kanun kapsamında log kaydı tutan bir UTM güvenlik duvarı cihazıdır. Tüm log kayıtları TÜBİTAK Zaman Damgası ile imzalanarak cihaz üzerinde saklanır. Türkçe ve İngilizce web arayüzünden yönetilir.",
+      "resellerNote": "Arkaya, XLog satış bayisidir. Kurumunuza uygun modelin belirlenmesi, satış ve kurulum süreçlerinde bize ulaşabilirsiniz.",
+      "featuresDetailed": [
         {
-          "title": "Analiz",
-          "description": "İhtiyaçlarınızı analiz eder ve en uygun çözümü belirleriz"
+          "title": "Güvenlik Duvarı",
+          "description": "Ağınıza yönelik saldırıları cihazlarınıza ulaşmadan engeller. Port taramaları, SYN saldırıları ve benzeri saldırı türlerini otomatik olarak önler."
         },
         {
-          "title": "Planlama",
-          "description": "Detaylı proje planı hazırlayıp timeline ve kaynakları belirleriz"
+          "title": "IPS / IDS",
+          "description": "Her paketin içeriği ağa girmeden önce kötü amaçlı içerik açısından incelenir. Olası tehditler durdurulur ve tekrar saldırı ihtimaline karşı süreli karantinaya alınır. Dinamik imza veritabanı sürekli güncellenir."
         },
         {
-          "title": "Geliştirme",
-          "description": "En son teknolojiler kullanarak çözümünüzü geliştiririz"
+          "title": "Web Filtreleme",
+          "description": "Cihaz üzerinde hazır bulunan kara listeler ile kullanıcılarınızın girmesini istemediğiniz siteleri engelleyebilirsiniz."
         },
         {
-          "title": "Test",
-          "description": "Kapsamlı testler yaparak kaliteyi garanti altına alırız"
+          "title": "HTTPS Filtreleme",
+          "description": "Sertifika ve proxy gerektirmeden, birkaç tıklamayla istenmeyen HTTPS adreslerini alt adreslerine kadar engelleyebilir veya izin verebilirsiniz."
         },
         {
-          "title": "Teslimat",
-          "description": "Projenizi teslim eder ve kullanıcı eğitimi sağlarız"
+          "title": "Hotspot",
+          "description": "Kullanıcılarınızı TC Kimlik, SMS, LDAP, otel sistemleri veya 3. parti yazılımlarla doğrulayarak internete bağlayabilir; 5651 kapsamına uygun log kayıtlarını alabilirsiniz."
         },
         {
-          "title": "Destek",
-          "description": "Sürekli destek ve bakım hizmetleri sunarak yanınızda oluruz"
+          "title": "Hız Sınırlama",
+          "description": "Ağınızdaki kullanıcıların aşırı trafik tüketmesini engeller, hızlarını sınırlayarak herkes için rahat bir internet kullanımı sağlar."
+        },
+        {
+          "title": "Arayüz Yönetimi",
+          "description": "Türkçe ve İngilizce dil seçenekli web arayüzünden ağ uyarılarını görüntüleyin, ayarları değiştirin, tek tıkla engelleyin veya izin verin."
+        },
+        {
+          "title": "Otomatik Güncellemeler",
+          "description": "Yazılım otomatik olarak güncellenir; kötü amaçlı yazılım ve illegal içerikli adresler otomatik engellenir. Güncel sürümlerle ağınız güvende kalır."
+        },
+        {
+          "title": "VPN / SSL VPN",
+          "description": "Uzak şubelerinizi VPN ile birleştirerek ağlar arasındaki fiziksel uzaklığı ortadan kaldırın. SSL VPN ile bilgisayarınızdan ağınıza şifreli olarak anında dahil olun."
+        },
+        {
+          "title": "Hat Birleştirme",
+          "description": "İnternet bağlantısının yetersiz olduğu yerlerde birden fazla hattı birleştirerek tek hat gibi kullandırır ve hızınızı yükseltir."
+        },
+        {
+          "title": "Hat Yedekleme",
+          "description": "Bağlantınızın kopması durumunda devreye giren yedekli yapı ile birden fazla internet hattını çalıştırarak kesintileri önleyin."
+        },
+        {
+          "title": "Loglama / İmzalama",
+          "description": "Sistem üzerinde kaydedilen tüm log kayıtları TÜBİTAK Zaman Damgası ile imzalanarak cihaz üzerinde saklanır."
         }
       ]
-    },
-    "contactButton": "İletişime Geçin"
-  },
-  "sectors": {
-    "title": "Hizmet Verdiğimiz Sektörler",
-  "construction": "İnşaat",
-  "software": "Yazılım Geliştirme",
-  "consulting": "Danışmanlık"
+    }
   },
   "contact": {
     "title": "İletişim",
-    "subtitle": "Projeleriniz ve sorularınız için bizimle iletişime geçin",
+    "subtitle": "Ürünlerimiz ve sorularınız için bizimle iletişime geçin",
+    "formTitle": "Bize Mesaj Gönderin",
+    "infoTitle": "İletişim Bilgileri",
+    "infoText": "Ürünlerimiz, demo talepleriniz veya iş birliği teklifleriniz için bizimle iletişime geçebilirsiniz. Size en kısa sürede dönüş yapacağız.",
     "form": {
       "name": "Ad Soyad",
+      "namePlaceholder": "Adınızı ve soyadınızı girin",
       "email": "E-posta",
+      "emailPlaceholder": "E-posta adresinizi girin",
       "phone": "Telefon",
+      "phonePlaceholder": "Telefon numaranızı girin",
       "subject": "Konu",
+      "subjectPlaceholder": "Mesaj konusunu girin",
       "message": "Mesaj",
-      "send": "Mesaj Gönder"
+      "messagePlaceholder": "Mesajınızı detaylı olarak yazın",
+      "send": "Mesaj Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Mesajınız gönderildi! En kısa sürede size dönüş yapacağız.",
+      "error": "Mesajınız gönderilemedi. Lütfen tekrar deneyin ya da doğrudan info@arkaya.com.tr adresine yazın.",
+      "honeypot": "Bu alanı boş bırakın"
     },
     "info": {
       "address": "Adres",
       "phone": "Telefon",
       "email": "E-posta",
-      "whatsapp": "WhatsApp"
+      "whatsapp": "WhatsApp",
+      "whatsappAction": "WhatsApp ile mesaj gönder"
     }
   },
   "footer": {
-    "company": "Şirket",
+    "tagline": "İş sağlığı ve güvenliği sektörü için SaaS uygulamaları geliştiriyor, XLog satış bayisi olarak kurumsal ağ güvenliği çözümleri sunuyoruz.",
+    "products": "Ürünler",
     "quickLinks": "Hızlı Bağlantılar",
     "contact": "İletişim",
-    "followUs": "Bizi Takip Edin",
-    "rights": "Tüm hakları saklıdır.",
-    "copyright": "Telif Hakkı"
+    "rights": "Tüm hakları saklıdır."
   },
   "common": {
     "loading": "Yükleniyor...",

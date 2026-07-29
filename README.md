@@ -1,6 +1,8 @@
 # Arkaya Website
 
-Modern, responsive website for Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi built with React and JavaScript.
+Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi'nin kurumsal web sitesi. React ve JavaScript ile geliştirilmiştir.
+
+Site, şirketin yazılım ürünlerini tanıtır: iş sağlığı ve güvenliği sektörü için geliştirdiğimiz **Katip Otomasyonu** ve **İSG Asistan**, ve satış bayisi olduğumuz ağ güvenliği çözümü **XLog**.
 
 ## Features
 
@@ -9,8 +11,7 @@ Modern, responsive website for Arkaya Arge Yazılım İnşaat Ticaret Limited Ş
 - ⚡ **Modern Technologies**: Built with React 19, JavaScript, Styled Components
 - 🎨 **Beautiful Animations**: Smooth animations with Framer Motion
 - 🚀 **AWS Amplify Ready**: Configured for easy deployment on AWS Amplify
-- 📈 **SEO Optimized**: Meta tags, Open Graph, and structured data
-- 🎯 **Performance Optimized**: Fast loading and optimized assets
+- 📈 **SEO Optimized**: Meta tags, Open Graph, and JSON-LD structured data
 
 ## Tech Stack
 
@@ -41,8 +42,11 @@ Update the `.env` file with your company information:
 REACT_APP_COMPANY_NAME=Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi
 REACT_APP_COMPANY_SHORT_NAME=Arkaya
 REACT_APP_WEBSITE_URL=https://arkaya.com.tr
-REACT_APP_PRODUCT_NAME=Katip Otomasyonu
-REACT_APP_PRODUCT_URL=https://www.katipotomasyonu.com/
+
+# Ürün adresleri (src/config/products.js bu değerleri okur)
+REACT_APP_KATIP_URL=https://www.katipotomasyonu.com/
+REACT_APP_ISG_ASISTAN_URL=https://isgasistan.tr
+REACT_APP_XLOG_URL=https://xlog.com.tr/
 
 # Contact Information
 REACT_APP_PHONE=+90 501 544 85 44
@@ -65,12 +69,12 @@ src/
 ├── components/          # Reusable components
 │   ├── Header.js
 │   └── Footer.js
+├── config/
+│   └── products.js     # Ürün kataloğu (logo, adres, renk, own/bayi bayrağı)
 ├── pages/              # Page components
 │   ├── Home.js
-│   ├── About.js
-│   ├── Services.js
 │   ├── Products.js
-│   ├── ProductsSimple.js
+│   ├── About.js
 │   └── Contact.js
 ├── styles/             # Styling and themes
 │   ├── theme.js
@@ -81,32 +85,36 @@ src/
 └── i18n.js            # Internationalization config
 ```
 
-## Features Overview
+## Sayfalar
 
-### 🏠 Home Page
-- Hero section with company introduction
-- Services overview
-- Featured product (Katip Otomasyonu)
-- Call-to-action sections
+### 🏠 Ana Sayfa
+- Şirket tanıtımı (hero)
+- Üç ürünün kart görünümü
+- "Neden Arkaya?" bölümü ve iletişim çağrısı
 
-### 📋 About Page
-- Company information
-- Mission, vision, and values
-- Company statistics
+### 🔧 Ürünler
+Her ürün için logo, konumlandırma, açıklama, özellik listesi ve ürün sitesine bağlantı:
+- **Katip Otomasyonu** — İSG-KATİP için Chrome uzantısı (kendi ürünümüz)
+- **İSG Asistan** — OSGB'ler için bulut tabanlı yönetim platformu (kendi ürünümüz)
+- **XLog** — Ağ Güvenlik ve Loglama Sistemi (satış bayisiyiz)
 
-### 🛠️ Services Page
-- Software development
-- Construction services
-- Technology consulting
+`/products#katip`, `/products#isgAsistan`, `/products#xlog` bağlantılarıyla ilgili ürüne doğrudan inilebilir.
 
-### 🔧 Products Page
-- Katip Otomasyonu detailed information
-- Features and benefits
+### 📋 Hakkımızda
+- Şirket bilgisi, misyon, vizyon, değerler
+- Sayılarla Arkaya
 
-### 📞 Contact Page
-- Contact form
-- Company contact information
-- Social media links
+### 📞 İletişim
+- İletişim formu, iletişim bilgileri ve sosyal medya bağlantıları
+
+## Ürün ekleme / güncelleme
+
+1. Logoyu `public/` altına koyun.
+2. `src/config/products.js` içine kaydı ekleyin (`key`, `logo`, `url`, `accent`, `own`).
+3. `src/locales/tr.json` **ve** `src/locales/en.json` içine `products.<key>` metinlerini ekleyin
+   (`name`, `tagline`, `short`, `description`, `features` veya `featuresDetailed`).
+
+Ana Sayfa ve Ürünler sayfası aynı kaynağı kullandığı için başka bir değişiklik gerekmez.
 
 ## License
 

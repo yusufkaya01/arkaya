@@ -294,9 +294,8 @@ export const Header = () => {
 
   const navItems = [
     { key: 'home', path: '/' },
-    { key: 'about', path: '/about' },
-    { key: 'services', path: '/services' },
     { key: 'products', path: '/products' },
+    { key: 'about', path: '/about' },
     { key: 'contact', path: '/contact' }
   ];
 

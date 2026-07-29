@@ -20,12 +20,17 @@ i18n
   .init({
     resources,
     fallbackLng: 'tr',
+    supportedLngs: ['tr', 'en'],
+    // 'en-GB' / 'tr-TR' gibi bölgesel kodlar 'en' / 'tr' olarak çözülsün.
+    load: 'languageOnly',
     debug: false,
     interpolation: {
       escapeValue: false
     },
     detection: {
-      order: ['navigator', 'localStorage', 'cookie'],
+      // localStorage önce: kullanıcı dili değiştirdiyse sayfa yenilenince
+      // tarayıcı dili tercihi ezmesin.
+      order: ['localStorage', 'cookie', 'navigator'],
       caches: ['localStorage', 'cookie']
     }
   });

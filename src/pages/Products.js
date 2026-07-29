@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
+import { PRODUCTS } from '../config/products';
 
 const PageContainer = styled.div`
   padding-top: 80px;
 `;
 
 const HeroSection = styled.section`
-  background: linear-gradient(135deg, ${theme.colors.primary} 0%, ${theme.colors.secondary} 100%);
+  background: ${theme.colors.gradient.primary};
   color: ${theme.colors.text.light};
   padding: ${theme.spacing['4xl']} 0;
   text-align: center;
+
+  h1 {
+    color: ${theme.colors.text.light};
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: ${theme.fontSizes.lg};
+    max-width: 720px;
+    margin: ${theme.spacing.lg} auto 0 auto;
+    line-height: 1.6;
+  }
 `;
 
 const Container = styled.div`
@@ -25,114 +40,141 @@ const Container = styled.div`
 `;
 
 const ProductSection = styled.section`
-  background: ${theme.colors.background};
   padding: ${theme.spacing['4xl']} 0;
-`;
-
-const ProductCard = styled.div`
-  background: ${theme.colors.surface};
-  border-radius: ${theme.borderRadius.lg};
-  overflow: hidden;
-  box-shadow: ${theme.shadows.md};
-  margin-bottom: ${theme.spacing.xl};
+  background: ${props => props.$alt ? theme.colors.surface : theme.colors.background};
+  /* Sabit başlığın altına gizlenmeden hedeflenebilmesi için */
+  scroll-margin-top: 96px;
 `;
 
 const ProductHeader = styled.div`
-  background: ${theme.colors.primary};
-  color: ${theme.colors.text.light};
-  padding: ${theme.spacing.lg};
-
-  h3 {
-    margin: 0 0 ${theme.spacing.sm} 0;
-    font-size: ${theme.fontSizes['2xl']};
-  }
-
-  p {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: ${theme.fontSizes.lg};
-  }
-`;
-
-const ProductContent = styled.div`
-  padding: ${theme.spacing.xl};
-
-  @media (max-width: ${theme.breakpoints.sm}) {
-    padding: ${theme.spacing.lg};
-  }
-`;
-
-const ProductGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
   gap: ${theme.spacing.xl};
+  flex-wrap: wrap;
+  padding-bottom: ${theme.spacing.xl};
+  border-bottom: 1px solid ${theme.colors.border};
+  margin-bottom: ${theme.spacing['2xl']};
+`;
 
-  @media (max-width: ${theme.breakpoints.md}) {
-    grid-template-columns: 1fr;
-    gap: ${theme.spacing.lg};
+const LogoSlot = styled.div`
+  height: 104px;
+  display: flex;
+  align-items: center;
+
+  img {
+    max-height: 100%;
+    max-width: 260px;
+    width: auto;
+    object-fit: contain;
   }
+`;
+
+const HeaderText = styled.div`
+  flex: 1 1 320px;
+
+  h2 {
+    color: ${theme.colors.primary};
+    font-size: ${theme.fontSizes['2xl']};
+    margin: 0 0 ${theme.spacing.xs} 0;
+  }
+`;
+
+const TaglineRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${theme.spacing.md};
+  flex-wrap: wrap;
+`;
+
+const Tagline = styled.p`
+  color: ${props => props.$accent};
+  font-weight: 600;
+  font-size: ${theme.fontSizes.md};
+  margin: 0;
+`;
+
+const StatusBadge = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px ${theme.spacing.sm};
+  border: 1px solid ${theme.colors.border};
+  border-radius: ${theme.borderRadius.full};
+  font-size: ${theme.fontSizes.xs};
+  font-weight: 600;
+  color: ${theme.colors.text.secondary};
+  background: ${theme.colors.background};
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: ${props => props.$accent};
+  }
+`;
+
+const Description = styled.p`
+  color: ${theme.colors.text.secondary};
+  font-size: ${theme.fontSizes.lg};
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 0 ${theme.spacing['2xl']} 0;
+`;
+
+const ResellerNote = styled.p`
+  border-left: 3px solid ${props => props.$accent};
+  background: ${theme.colors.background};
+  padding: ${theme.spacing.md} ${theme.spacing.lg};
+  border-radius: 0 ${theme.borderRadius.md} ${theme.borderRadius.md} 0;
+  color: ${theme.colors.text.primary};
+  font-size: ${theme.fontSizes.md};
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 0 ${theme.spacing['2xl']} 0;
+`;
+
+const BlockTitle = styled.h3`
+  color: ${theme.colors.primary};
+  font-size: ${theme.fontSizes.xl};
+  margin-bottom: ${theme.spacing.lg};
 `;
 
 const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 ${theme.spacing['2xl']} 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: ${theme.spacing.sm} ${theme.spacing.xl};
+
+  @media (max-width: ${theme.breakpoints.md}) {
+    grid-template-columns: 1fr;
+  }
 
   li {
-    padding: ${theme.spacing.sm} 0;
-    border-bottom: 1px solid ${theme.colors.border};
-    font-size: ${theme.fontSizes.md};
-
-    &:last-child {
-      border-bottom: none;
-    }
-
-    &:before {
-      content: '▶';
-      color: ${theme.colors.primary};
-      margin-right: ${theme.spacing.sm};
-    }
-  }
-`;
-
-const BenefitCard = styled.div`
-  background: ${theme.colors.background};
-  border: 1px solid ${theme.colors.border};
-  border-radius: ${theme.borderRadius.md};
-  padding: ${theme.spacing.lg};
-  margin-bottom: ${theme.spacing.md};
-
-  h4 {
-    color: ${theme.colors.primary};
-    margin: 0 0 ${theme.spacing.sm} 0;
-    font-size: ${theme.fontSizes.lg};
-  }
-
-  p {
-    margin: 0;
     color: ${theme.colors.text.secondary};
-    font-size: ${theme.fontSizes.md};
+    line-height: 1.6;
+    padding-left: ${theme.spacing.lg};
+    position: relative;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      color: ${props => props.$accent};
+    }
   }
 `;
 
-const SectorsSection = styled.section`
-  background: ${theme.colors.surface};
-  padding: ${theme.spacing['4xl']} 0;
-
-  h2 {
-    text-align: center;
-    margin-bottom: ${theme.spacing['2xl']};
-    color: ${theme.colors.primary};
-    font-size: ${theme.fontSizes['3xl']};
-  }
-`;
-
-const SectorsGrid = styled.div`
+const FeatureGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: ${theme.spacing.lg};
+  margin-bottom: ${theme.spacing['2xl']};
 
-  @media (max-width: ${theme.breakpoints.md}) {
+  @media (max-width: ${theme.breakpoints.lg}) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -141,135 +183,169 @@ const SectorsGrid = styled.div`
   }
 `;
 
-const SectorCard = styled.div`
+const FeatureCard = styled(motion.div)`
   background: ${theme.colors.background};
-  padding: ${theme.spacing.xl};
-  border-radius: ${theme.borderRadius.lg};
-  text-align: center;
   border: 1px solid ${theme.colors.border};
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: ${theme.shadows.md};
-  }
-
-  .sector-icon {
-    font-size: ${theme.fontSizes['3xl']};
-    margin-bottom: ${theme.spacing.md};
-  }
+  border-radius: ${theme.borderRadius.lg};
+  padding: ${theme.spacing.lg};
 
   h4 {
     color: ${theme.colors.primary};
+    font-size: ${theme.fontSizes.md};
+    margin: 0 0 ${theme.spacing.sm} 0;
+  }
+
+  p {
+    color: ${theme.colors.text.secondary};
+    font-size: ${theme.fontSizes.sm};
+    line-height: 1.6;
     margin: 0;
   }
 `;
 
-export const Products = () => {
-  const { t, ready } = useTranslation();
+const Actions = styled.div`
+  display: flex;
+  gap: ${theme.spacing.md};
+  flex-wrap: wrap;
+`;
 
-  // Debug logging for mobile troubleshooting
-  console.log('Products component rendering');
-  console.log('Translation ready:', ready);
-  console.log('User agent:', navigator.userAgent);
-  console.log('Screen size:', window.innerWidth, 'x', window.innerHeight);
+const PrimaryLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: ${theme.spacing.md} ${theme.spacing.xl};
+  background: ${theme.colors.primary};
+  color: ${theme.colors.text.light};
+  border: 2px solid ${theme.colors.primary};
+  border-radius: ${theme.borderRadius.md};
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
 
-  // Show loading state if translations aren't ready
-  if (!ready) {
-    return (
-      <PageContainer>
-        <div style={{ textAlign: 'center', padding: '100px 20px' }}>
-          <h2>Loading...</h2>
-        </div>
-      </PageContainer>
-    );
+  &:hover {
+    background: transparent;
+    color: ${theme.colors.primary};
   }
+`;
 
-  try {
-    const katipFeatures = Array.isArray(t('products.katip.features.list', { returnObjects: true })) 
-      ? t('products.katip.features.list', { returnObjects: true })
-      : [];
-    
-    const benefitsData = t('products.katip.benefits.list', { returnObjects: true });
-    const benefits = Array.isArray(benefitsData) ? benefitsData : [];
+const SecondaryLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: ${theme.spacing.md} ${theme.spacing.xl};
+  background: transparent;
+  color: ${theme.colors.primary};
+  border: 2px solid ${theme.colors.border};
+  border-radius: ${theme.borderRadius.md};
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
 
-    const sectors = [
-      { name: t('sectors.construction'), icon: '▲' },
-      { name: t('sectors.software'), icon: '◆' },
-      { name: t('sectors.consulting'), icon: '◇' }
-    ];
+  &:hover {
+    border-color: ${theme.colors.primary};
+  }
+`;
 
-    return (
-      <PageContainer>
-        <HeroSection>
-          <Container>
+export const Products = () => {
+  const { t } = useTranslation();
+  const { hash } = useLocation();
+
+  // /products#xlog gibi bağlantılarla doğrudan ürüne inilebilsin.
+  useEffect(() => {
+    if (!hash) return;
+    const target = document.getElementById(hash.slice(1));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [hash]);
+
+  const asArray = (value) => (Array.isArray(value) ? value : []);
+
+  return (
+    <PageContainer>
+      <HeroSection>
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <h1>{t('products.title')}</h1>
             <p>{t('products.subtitle')}</p>
-          </Container>
-        </HeroSection>
+          </motion.div>
+        </Container>
+      </HeroSection>
 
-        <ProductSection>
-          <Container>
-            <ProductCard>
+      {PRODUCTS.map((product, index) => {
+        const base = `products.${product.key}`;
+        const featureKey = product.detailedFeatures ? 'featuresDetailed' : 'features';
+        const features = asArray(t(`${base}.${featureKey}`, { returnObjects: true }));
+
+        return (
+          <ProductSection key={product.key} id={product.key} $alt={index % 2 === 1}>
+            <Container>
               <ProductHeader>
-                <h3>{t('products.katip.title')}</h3>
-                <p>{t('products.katip.description')}</p>
+                <LogoSlot>
+                  <img src={product.logo} alt={t(`${base}.name`)} />
+                </LogoSlot>
+                <HeaderText>
+                  <h2>{t(`${base}.name`)}</h2>
+                  <TaglineRow>
+                    <Tagline $accent={product.accent}>{t(`${base}.tagline`)}</Tagline>
+                    <StatusBadge $accent={product.accent}>
+                      {product.own ? t('products.badgeOwn') : t('products.badgeReseller')}
+                    </StatusBadge>
+                  </TaglineRow>
+                </HeaderText>
               </ProductHeader>
-              
-              <ProductContent>
-                <ProductGrid>
-                  <div className="features-section">
-                    <h3>{t('products.katip.features.title')}</h3>
-                    <FeatureList>
-                      {katipFeatures.map((feature, index) => (
-                        <li key={index}>{feature}</li>
-                      ))}
-                    </FeatureList>
-                  </div>
 
-                  <div className="benefits-section">
-                    <h3>{t('products.katip.benefits.title')}</h3>
-                    {benefits.map((benefit, index) => (
-                      <BenefitCard key={index}>
-                        <h4>{benefit.title}</h4>
-                        <p>{benefit.description}</p>
-                      </BenefitCard>
-                    ))}
-                  </div>
-                </ProductGrid>
+              <Description>{t(`${base}.description`)}</Description>
 
-              </ProductContent>
-            </ProductCard>
-          </Container>
-        </ProductSection>
+              {!product.own && (
+                <ResellerNote $accent={product.accent}>
+                  {t(`${base}.resellerNote`)}
+                </ResellerNote>
+              )}
 
-        <SectorsSection>
-          <Container>
-            <h2>{t('products.sectors.title')}</h2>
-            <SectorsGrid>
-              {sectors.map((sector, index) => (
-                <SectorCard key={index}>
-                  <div className="sector-icon">{sector.icon}</div>
-                  <h4>{sector.name}</h4>
-                </SectorCard>
-              ))}
-            </SectorsGrid>
-          </Container>
-        </SectorsSection>
-      </PageContainer>
-    );
-  } catch (error) {
-    console.error('Error in Products component:', error);
-    return (
-      <PageContainer>
-        <div style={{ textAlign: 'center', padding: '100px 20px' }}>
-          <h2>Error loading products</h2>
-          <p>Please try refreshing the page</p>
-          <button onClick={() => window.location.reload()}>Refresh</button>
-        </div>
-      </PageContainer>
-    );
-  }
+              <BlockTitle>{t('products.featuresTitle')}</BlockTitle>
+
+              {product.detailedFeatures ? (
+                <FeatureGrid>
+                  {features.map((feature, idx) => (
+                    <FeatureCard
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: Math.min(idx, 5) * 0.05 }}
+                      viewport={{ once: true }}
+                    >
+                      <h4>{feature.title}</h4>
+                      <p>{feature.description}</p>
+                    </FeatureCard>
+                  ))}
+                </FeatureGrid>
+              ) : (
+                <FeatureList $accent={product.accent}>
+                  {features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  ))}
+                </FeatureList>
+              )}
+
+              <Actions>
+                <PrimaryLink
+                  href={product.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t('products.visit')}
+                </PrimaryLink>
+                <SecondaryLink to="/contact">{t('hero.contactUs')}</SecondaryLink>
+              </Actions>
+            </Container>
+          </ProductSection>
+        );
+      })}
+    </PageContainer>
+  );
 };
 
 export default Products;

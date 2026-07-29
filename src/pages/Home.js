@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
+import { PRODUCTS } from '../config/products';
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -18,7 +19,7 @@ const HeroSection = styled.section`
 const HeroContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 ${theme.spacing.lg};
+  padding: ${theme.spacing['4xl']} ${theme.spacing.lg};
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: ${theme.spacing['4xl']};
@@ -31,8 +32,19 @@ const HeroContent = styled.div`
   }
 
   @media (max-width: ${theme.breakpoints.sm}) {
-    padding: 0 ${theme.spacing.md};
+    padding: ${theme.spacing['4xl']} ${theme.spacing.md};
   }
+`;
+
+const Badge = styled.span`
+  display: inline-block;
+  padding: ${theme.spacing.xs} ${theme.spacing.md};
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: ${theme.borderRadius.full};
+  font-size: ${theme.fontSizes.sm};
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: ${theme.spacing.lg};
 `;
 
 const HeroText = styled.div`
@@ -81,13 +93,17 @@ const CTAButtons = styled.div`
   gap: ${theme.spacing.lg};
   flex-wrap: wrap;
 
+  @media (max-width: ${theme.breakpoints.lg}) {
+    justify-content: center;
+  }
+
   @media (max-width: ${theme.breakpoints.sm}) {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
   }
 `;
 
-const Button = styled(Link)`
+const buttonStyles = `
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -97,6 +113,10 @@ const Button = styled(Link)`
   text-decoration: none;
   transition: all 0.3s ease;
   min-width: 160px;
+`;
+
+const Button = styled(Link)`
+  ${buttonStyles}
 
   ${props => props.$variant === 'secondary' ? `
     background: transparent;
@@ -108,14 +128,13 @@ const Button = styled(Link)`
       color: ${theme.colors.primary};
     }
   ` : `
-    background: ${theme.colors.accent};
-    color: ${theme.colors.text.light};
-    border: 2px solid ${theme.colors.accent};
+    background: ${theme.colors.text.light};
+    color: ${theme.colors.primary};
+    border: 2px solid ${theme.colors.text.light};
 
     &:hover {
       background: transparent;
-      color: ${theme.colors.accent};
-      border-color: ${theme.colors.accent};
+      color: ${theme.colors.text.light};
     }
   `}
 `;
@@ -140,127 +159,196 @@ const Container = styled.div`
 
 const SectionTitle = styled.h2`
   text-align: center;
-  margin-bottom: ${theme.spacing['3xl']};
+  margin-bottom: ${theme.spacing.md};
   color: ${theme.colors.primary};
 `;
 
-const ServicesGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: ${theme.spacing['2xl']};
-  margin-top: ${theme.spacing['3xl']};
-`;
-
-const ServiceCard = styled(motion.div)`
-  background: ${theme.colors.background};
-  padding: ${theme.spacing['2xl']};
-  border-radius: ${theme.borderRadius.xl};
-  box-shadow: ${theme.shadows.lg};
+const SectionSubtitle = styled.p`
   text-align: center;
-  border: 1px solid ${theme.colors.border};
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: ${theme.shadows.xl};
-  }
-
-  h3 {
-    color: ${theme.colors.primary};
-    margin-bottom: ${theme.spacing.lg};
-  }
-
-  p {
-    color: ${theme.colors.text.secondary};
-    line-height: 1.6;
-  }
+  color: ${theme.colors.text.secondary};
+  font-size: ${theme.fontSizes.lg};
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.6;
 `;
 
 const ProductSection = styled(Section)`
   background: ${theme.colors.surface};
 `;
 
-const ProductCard = styled.div`
-  background: ${theme.colors.background};
-  border-radius: ${theme.borderRadius.xl};
-  overflow: hidden;
-  box-shadow: ${theme.shadows.lg};
+const ProductGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: ${theme.spacing['2xl']};
-  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: ${theme.spacing.xl};
+  margin-top: ${theme.spacing['3xl']};
 
   @media (max-width: ${theme.breakpoints.lg}) {
     grid-template-columns: 1fr;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
-const ProductContent = styled.div`
+const ProductCard = styled(motion.div)`
+  background: ${theme.colors.background};
+  border: 1px solid ${theme.colors.border};
+  border-top: 4px solid ${props => props.$accent};
+  border-radius: ${theme.borderRadius.xl};
   padding: ${theme.spacing['2xl']};
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: ${theme.shadows.lg};
+  }
+`;
+
+/**
+ * Üç ürünün logosu farklı en/boy oranında (Katip kare, İSG Asistan ve XLog
+ * yatay). Sabit yükseklik + ortak genişlik sınırı üçünü de benzer ağırlıkta
+ * gösterir.
+ */
+const LogoSlot = styled.div`
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: ${theme.spacing.lg};
+
+  img {
+    max-height: 100%;
+    max-width: 190px;
+    width: auto;
+    object-fit: contain;
+  }
+`;
+
+const OwnershipBadge = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 2px ${theme.spacing.sm};
+  border: 1px solid ${theme.colors.border};
+  border-radius: ${theme.borderRadius.full};
+  font-size: ${theme.fontSizes.xs};
+  font-weight: 600;
+  color: ${theme.colors.text.secondary};
+  margin-bottom: ${theme.spacing.md};
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: ${props => props.$accent};
+  }
+`;
+
+const Tagline = styled.p`
+  color: ${props => props.$accent};
+  font-weight: 600;
+  font-size: ${theme.fontSizes.sm};
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: ${theme.spacing.sm};
+`;
+
+const CardText = styled.p`
+  color: ${theme.colors.text.secondary};
+  line-height: 1.6;
+  margin-bottom: ${theme.spacing.xl};
+  flex-grow: 1;
+`;
+
+const CardActions = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${theme.spacing.md};
+  align-items: center;
+`;
+
+const TextLink = styled(Link)`
+  color: ${theme.colors.primary};
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid ${theme.colors.border};
+  padding-bottom: 2px;
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: ${theme.colors.primary};
+  }
+`;
+
+const ExternalLink = styled.a`
+  color: ${theme.colors.text.secondary};
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${theme.colors.primary};
+  }
+`;
+
+const WhyGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: ${theme.spacing['2xl']};
+  margin-top: ${theme.spacing['3xl']};
+`;
+
+const WhyCard = styled(motion.div)`
   h3 {
     color: ${theme.colors.primary};
-    margin-bottom: ${theme.spacing.lg};
+    font-size: ${theme.fontSizes.lg};
+    margin-bottom: ${theme.spacing.sm};
   }
 
   p {
     color: ${theme.colors.text.secondary};
-    margin-bottom: ${theme.spacing.lg};
     line-height: 1.6;
   }
+`;
 
-  ul {
-    list-style: none;
-    margin-bottom: ${theme.spacing.lg};
+const CTASection = styled.section`
+  background: ${theme.colors.gradient.primary};
+  color: ${theme.colors.text.light};
+  padding: ${theme.spacing['4xl']} 0;
+  text-align: center;
 
-    li {
-      color: ${theme.colors.text.secondary};
-      margin-bottom: ${theme.spacing.sm};
-      padding-left: ${theme.spacing.lg};
-      position: relative;
+  h2 {
+    color: ${theme.colors.text.light};
+    margin-bottom: ${theme.spacing.md};
+  }
 
-      &::before {
-        content: '✓';
-        position: absolute;
-        left: 0;
-        color: ${theme.colors.accent};
-        font-weight: bold;
-      }
-    }
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: ${theme.fontSizes.lg};
+    max-width: 640px;
+    margin: 0 auto ${theme.spacing['2xl']} auto;
+    line-height: 1.6;
   }
 `;
 
-const ProductImage = styled.div`
-  padding: ${theme.spacing['2xl']};
+const CTAInner = styled.div`
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: ${theme.colors.surface};
-
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: ${theme.borderRadius.lg};
-  }
 `;
+
+/** Bağlantı metni: şema, "www." ve sondaki eğik çizgi olmadan. Href değişmez. */
+const displayUrl = (url) =>
+  url.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');
 
 export const Home = () => {
   const { t } = useTranslation();
 
-  const services = [
-    {
-      title: t('services.software.title'),
-      description: t('services.software.description')
-    },
-    {
-      title: t('services.construction.title'),
-      description: t('services.construction.description')
-    },
-    {
-      title: t('services.consulting.title'),
-      description: t('services.consulting.description')
-    }
-  ];
+  const reasons = t('home.why', { returnObjects: true });
+  const whyItems = Array.isArray(reasons) ? reasons : [];
 
   return (
     <>
@@ -272,10 +360,11 @@ export const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <HeroText>
+              <Badge>{t('hero.badge')}</Badge>
               <h1>{t('hero.title')}</h1>
               <p>{t('hero.subtitle')}</p>
               <CTAButtons>
-                <Button to="/about">{t('hero.cta')}</Button>
+                <Button to="/products">{t('hero.cta')}</Button>
                 <Button to="/contact" $variant="secondary">{t('hero.contactUs')}</Button>
               </CTAButtons>
             </HeroText>
@@ -287,64 +376,87 @@ export const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <HeroImage>
-              <img src="/logo_company-name-below-logo.png" alt="Arkaya Logo" />
+              <img src="/logo_company-name-below-logo.png" alt="Arkaya" />
             </HeroImage>
           </motion.div>
         </HeroContent>
       </HeroSection>
 
-      <Section>
+      <ProductSection>
         <Container>
-          <SectionTitle>{t('services.title')}</SectionTitle>
-          <ServicesGrid>
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
+          <SectionTitle>{t('home.productsTitle')}</SectionTitle>
+          <SectionSubtitle>{t('home.productsSubtitle')}</SectionSubtitle>
+
+          <ProductGrid>
+            {PRODUCTS.map((product, index) => (
+              <ProductCard
+                key={product.key}
+                $accent={product.accent}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-              </ServiceCard>
+                <LogoSlot>
+                  <img
+                    src={product.logo}
+                    alt={t(`products.${product.key}.name`)}
+                  />
+                </LogoSlot>
+                <OwnershipBadge $accent={product.accent}>
+                  {product.own ? t('products.badgeOwn') : t('products.badgeReseller')}
+                </OwnershipBadge>
+                <Tagline $accent={product.accent}>
+                  {t(`products.${product.key}.tagline`)}
+                </Tagline>
+                <CardText>{t(`products.${product.key}.short`)}</CardText>
+                <CardActions>
+                  <TextLink to="/products">{t('products.detail')}</TextLink>
+                  <ExternalLink
+                    href={product.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {displayUrl(product.url)} ↗
+                  </ExternalLink>
+                </CardActions>
+              </ProductCard>
             ))}
-          </ServicesGrid>
+          </ProductGrid>
+        </Container>
+      </ProductSection>
+
+      <Section>
+        <Container>
+          <SectionTitle>{t('home.whyTitle')}</SectionTitle>
+          <SectionSubtitle>{t('home.whySubtitle')}</SectionSubtitle>
+
+          <WhyGrid>
+            {whyItems.map((item, index) => (
+              <WhyCard
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </WhyCard>
+            ))}
+          </WhyGrid>
         </Container>
       </Section>
 
-      <ProductSection>
+      <CTASection>
         <Container>
-          <SectionTitle>{t('products.title')}</SectionTitle>
-          <ProductCard>
-            <ProductContent>
-              <h3>{t('products.katip.title')}</h3>
-              <p>{t('products.katip.description')}</p>
-              <h4>{t('products.katip.features.title')}</h4>
-              <ul>
-                {t('products.katip.features.list', { returnObjects: true }).map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-              <Button to={process.env.REACT_APP_PRODUCT_URL || '#'} target="_blank">
-                {t('products.katip.visit')}
-              </Button>
-            </ProductContent>
-            <ProductImage>
-              <div style={{ 
-                background: theme.colors.gradient.primary,
-                padding: theme.spacing['2xl'],
-                borderRadius: theme.borderRadius.lg,
-                color: theme.colors.text.light,
-                textAlign: 'center'
-              }}>
-                <h4>{t('products.katip.title')}</h4>
-                <p>{t('products.katip.subtitle')}</p>
-              </div>
-            </ProductImage>
-          </ProductCard>
+          <h2>{t('home.ctaTitle')}</h2>
+          <p>{t('home.ctaSubtitle')}</p>
+          <CTAInner>
+            <Button to="/contact">{t('home.ctaButton')}</Button>
+          </CTAInner>
         </Container>
-      </ProductSection>
+      </CTASection>
     </>
   );
 };

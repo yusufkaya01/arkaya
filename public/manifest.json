@@ -1,6 +1,6 @@
 {
   "short_name": "Arkaya",
-  "name": "Arkaya - Yazılım, İnşaat ve Otomasyon Çözümleri",
+  "name": "Arkaya - İSG Yazılımları ve Ağ Güvenliği Çözümleri",
   "icons": [
     {
       "src": "only-logo.png",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#2c3e50",
+  "theme_color": "#000000",
   "background_color": "#ffffff"
 }

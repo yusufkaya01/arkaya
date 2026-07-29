@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
+import { PRODUCTS } from '../config/products';
 
 const FooterContainer = styled.footer`
   background: #000000;
@@ -125,9 +126,8 @@ export const Footer = () => {
 
   const quickLinks = [
     { key: 'home', path: '/' },
-    { key: 'about', path: '/about' },
-    { key: 'services', path: '/services' },
     { key: 'products', path: '/products' },
+    { key: 'about', path: '/about' },
     { key: 'contact', path: '/contact' }
   ];
 
@@ -140,7 +140,7 @@ export const Footer = () => {
             <span>{process.env.REACT_APP_COMPANY_SHORT_NAME}</span>
           </Logo>
           <p>
-            {t('about.description')}
+            {t('footer.tagline')}
           </p>
           <SocialLinks>
             {process.env.REACT_APP_LINKEDIN && (
@@ -159,6 +159,20 @@ export const Footer = () => {
               </a>
             )}
           </SocialLinks>
+        </FooterSection>
+
+        <FooterSection>
+          <h4>{t('footer.products')}</h4>
+          {PRODUCTS.map((product) => (
+            <a
+              key={product.key}
+              href={product.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t(`products.${product.key}.name`)}
+            </a>
+          ))}
         </FooterSection>
 
         <FooterSection>

@@ -88,6 +88,33 @@ const FormGroup = styled.div`
   }
 `;
 
+const StatusMessage = styled.div`
+  padding: ${theme.spacing.md} ${theme.spacing.lg};
+  border-radius: ${theme.borderRadius.md};
+  margin-bottom: ${theme.spacing.lg};
+  font-size: ${theme.fontSizes.md};
+  line-height: 1.5;
+
+  ${props => props.$variant === 'error' ? `
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+  ` : `
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+  `}
+`;
+
+/** Formspree'nin spam tuzağı: robotlar doldurur, insanlar göremez. */
+const HoneyPot = styled.div`
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+`;
+
 const SubmitButton = styled.button`
   background: ${theme.colors.accent};
   color: ${theme.colors.text.light};
@@ -181,16 +208,18 @@ const SocialLinks = styled.div`
   }
 `;
 
+const FORMSPREE_URL =
+  process.env.REACT_APP_FORMSPREE_URL || 'https://formspree.io/f/mykrvgkg';
+
+const EMPTY_FORM = { name: '', email: '', phone: '', subject: '', message: '' };
+
 export const Contact = () => {
-  const { t } = useTranslation();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
+  const { t, i18n } = useTranslation();
+  const [formData, setFormData] = useState(EMPTY_FORM);
+  const [honeypot, setHoneypot] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // null | 'success' | 'error'
+  const [status, setStatus] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -203,13 +232,36 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      alert('Mesajınız gönderildi! En kısa sürede size dönüş yapacağız.');
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    setStatus(null);
+
+    try {
+      // JSON modu: Formspree'nin kendi teşekkür sayfasına yönlendirme yapmaz,
+      // sonucu burada gösteririz.
+      const response = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          _gotcha: honeypot,
+          _subject: `arkaya.com.tr — ${formData.subject}`,
+          language: i18n.language
+        })
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData(EMPTY_FORM);
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -237,7 +289,33 @@ export const Contact = () => {
               viewport={{ once: true }}
             >
               <ContactForm onSubmit={handleSubmit}>
-                <h3>Bize Mesaj Gönderin</h3>
+                <h3>{t('contact.formTitle')}</h3>
+
+                {status && (
+                  <StatusMessage
+                    role="status"
+                    aria-live="polite"
+                    $variant={status === 'error' ? 'error' : 'success'}
+                  >
+                    {status === 'success'
+                      ? t('contact.form.success')
+                      : t('contact.form.error')}
+                  </StatusMessage>
+                )}
+
+                <HoneyPot aria-hidden="true">
+                  <label htmlFor="_gotcha">{t('contact.form.honeypot')}</label>
+                  <input
+                    type="text"
+                    id="_gotcha"
+                    name="_gotcha"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
+                </HoneyPot>
+
                 <FormGroup>
                   <label htmlFor="name">{t('contact.form.name')} *</label>
                   <input
@@ -247,7 +325,7 @@ export const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    placeholder="Adınızı ve soyadınızı girin"
+                    placeholder={t('contact.form.namePlaceholder')}
                   />
                 </FormGroup>
 
@@ -260,7 +338,7 @@ export const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    placeholder="E-posta adresinizi girin"
+                    placeholder={t('contact.form.emailPlaceholder')}
                   />
                 </FormGroup>
 
@@ -272,7 +350,7 @@ export const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="Telefon numaranızı girin"
+                    placeholder={t('contact.form.phonePlaceholder')}
                   />
                 </FormGroup>
 
@@ -285,7 +363,7 @@ export const Contact = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    placeholder="Mesaj konusunu girin"
+                    placeholder={t('contact.form.subjectPlaceholder')}
                   />
                 </FormGroup>
 
@@ -297,12 +375,12 @@ export const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    placeholder="Mesajınızı detaylı olarak yazın"
+                    placeholder={t('contact.form.messagePlaceholder')}
                   />
                 </FormGroup>
 
                 <SubmitButton type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? 'Gönderiliyor...' : t('contact.form.send')}
+                  {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
                 </SubmitButton>
               </ContactForm>
             </motion.div>
@@ -314,11 +392,8 @@ export const Contact = () => {
               viewport={{ once: true }}
             >
               <ContactInfo>
-                <h3>İletişim Bilgileri</h3>
-                <p>
-                  Projeleriniz, sorularınız veya iş birliği teklifleriniz için 
-                  bizimle iletişime geçebilirsiniz. Size en kısa sürede dönüş yapacağız.
-                </p>
+                <h3>{t('contact.infoTitle')}</h3>
+                <p>{t('contact.infoText')}</p>
 
                 {process.env.REACT_APP_PHONE && (
                   <ContactCard>
@@ -346,7 +421,7 @@ export const Contact = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      WhatsApp ile mesaj gönder
+                      {t('contact.info.whatsappAction')}
                     </a>
                   </ContactCard>
                 )}
