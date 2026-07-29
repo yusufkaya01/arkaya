@@ -1,0 +1,107 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "products": "Products",
+    "contact": "Contact",
+    "sectors": "Sectors"
+  },
+  "hero": {
+    "title": "Innovation in Software, Construction, and Automation",
+    "subtitle": "Arkaya develops cutting-edge solutions that transform your business processes and drive digital transformation.",
+    "cta": "Learn More",
+    "contactUs": "Contact Us"
+  },
+  "about": {
+    "title": "About Arkaya",
+    "description": "Arkaya Software Development Construction Trade Limited Company is a leading technology company operating in software development, construction, and automation sectors. We provide innovative solutions that help our clients optimize their business processes and achieve digital transformation.",
+    "mission": "Our Mission",
+    "missionText": "To develop technology solutions that facilitate our clients' business processes and increase their competitive advantage.",
+    "vision": "Our Vision",
+    "visionText": "To be a leading company that shapes the future of technology in Turkey and internationally.",
+    "values": "Our Values",
+    "valuesText": "Innovation, Quality, Customer Satisfaction, Reliability, and Continuous Development"
+  },
+  "products": {
+    "title": "Our Products",
+    "katip": {
+      "title": "Katip Otomasyonu",
+      "description": "A comprehensive automation solution developed specifically for OSGB (Occupational Health and Safety Centers). It automates daily tasks, manages workflows, and increases operational efficiency.",
+      "features": {
+        "title": "Key Features",
+        "list": [
+          "Employee health tracking and management",
+          "Automatic report generation",
+          "Appointment and schedule management",
+          "Document management system",
+          "Compliance and regulatory tracking",
+          "Real-time dashboard and analytics"
+        ]
+      },
+      "visit": "Visit Product Website"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "software": {
+      "title": "Software Development",
+      "description": "We develop custom software solutions tailored to your business needs using modern technologies and best practices."
+    },
+    "construction": {
+      "title": "Construction Services",
+      "description": "We provide comprehensive construction services with innovative approaches and quality standards."
+    },
+    "automation": {
+      "title": "Business Automation",
+      "description": "We optimize your business processes with automation solutions that increase efficiency and reduce operational costs."
+    },
+    "consulting": {
+      "title": "Technology Consulting",
+      "description": "We guide your digital transformation journey with expert consulting services and strategic planning."
+    }
+  },
+  "sectors": {
+    "title": "Sectors We Serve",
+    "healthcare": "Healthcare",
+    "construction": "Construction",
+    "manufacturing": "Manufacturing",
+    "finance": "Finance",
+    "education": "Education",
+    "retail": "Retail"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us for your projects and questions",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message"
+    },
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved.",
+    "copyright": "Copyright"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "close": "Close",
+    "readMore": "Read More",
+    "learnMore": "Learn More"
+  }
+}

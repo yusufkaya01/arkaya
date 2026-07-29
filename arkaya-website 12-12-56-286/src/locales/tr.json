@@ -1,0 +1,107 @@
+{
+  "navigation": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetler",
+    "products": "Ürünler",
+    "contact": "İletişim",
+    "sectors": "Sektörler"
+  },
+  "hero": {
+    "title": "Yazılım, İnşaat ve Otomasyon Alanında İnovasyon",
+    "subtitle": "Arkaya, iş süreçlerinizi dönüştüren ve dijital dönüşümünüzü destekleyen son teknoloji çözümler geliştirmektedir.",
+    "cta": "Daha Fazla Bilgi",
+    "contactUs": "İletişime Geçin"
+  },
+  "about": {
+    "title": "Arkaya Hakkında",
+    "description": "Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi, yazılım geliştirme, inşaat ve otomasyon sektörlerinde faaliyet gösteren önder bir teknoloji şirketidir. Müşterilerimizin iş süreçlerini optimize etmelerine ve dijital dönüşüm gerçekleştirmelerine yardımcı olan yenilikçi çözümler sunuyoruz.",
+    "mission": "Misyonumuz",
+    "missionText": "Müşterilerimizin iş süreçlerini kolaylaştıran ve rekabet avantajı sağlayan teknoloji çözümleri geliştirmek.",
+    "vision": "Vizyonumuz",
+    "visionText": "Türkiye'de ve uluslararası arenada teknolojinin geleceğini şekillendiren önder bir şirket olmak.",
+    "values": "Değerlerimiz",
+    "valuesText": "İnovasyon, Kalite, Müşteri Memnuniyeti, Güvenilirlik ve Sürekli Gelişim"
+  },
+  "products": {
+    "title": "Ürünlerimiz",
+    "katip": {
+      "title": "Katip Otomasyonu",
+      "description": "OSGB (İş Sağlığı ve Güvenliği Merkezleri) için özel olarak geliştirilmiş kapsamlı bir otomasyon çözümü. Günlük işleri otomatikleştirir, iş akışlarını yönetir ve operasyonel verimliliği artırır.",
+      "features": {
+        "title": "Temel Özellikler",
+        "list": [
+          "Çalışan sağlığı takibi ve yönetimi",
+          "Otomatik rapor oluşturma",
+          "Randevu ve program yönetimi",
+          "Doküman yönetim sistemi",
+          "Uyumluluk ve mevzuat takibi",
+          "Gerçek zamanlı dashboard ve analitik"
+        ]
+      },
+      "visit": "Ürün Web Sitesini Ziyaret Et"
+    }
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "software": {
+      "title": "Yazılım Geliştirme",
+      "description": "Modern teknolojiler ve en iyi uygulamalar kullanarak iş ihtiyaçlarınıza özel yazılım çözümleri geliştiriyoruz."
+    },
+    "construction": {
+      "title": "İnşaat Hizmetleri",
+      "description": "Yenilikçi yaklaşımlar ve kalite standartları ile kapsamlı inşaat hizmetleri sunuyoruz."
+    },
+    "automation": {
+      "title": "İş Otomasyonu",
+      "description": "Verimliliği artıran ve operasyonel maliyetleri düşüren otomasyon çözümleri ile iş süreçlerinizi optimize ediyoruz."
+    },
+    "consulting": {
+      "title": "Teknoloji Danışmanlığı",
+      "description": "Uzman danışmanlık hizmetleri ve stratejik planlama ile dijital dönüşüm yolculuğunuzda size rehberlik ediyoruz."
+    }
+  },
+  "sectors": {
+    "title": "Hizmet Verdiğimiz Sektörler",
+    "healthcare": "Sağlık",
+    "construction": "İnşaat",
+    "manufacturing": "İmalat",
+    "finance": "Finans",
+    "education": "Eğitim",
+    "retail": "Perakende"
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Projeleriniz ve sorularınız için bizimle iletişime geçin",
+    "form": {
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "subject": "Konu",
+      "message": "Mesaj",
+      "send": "Mesaj Gönder"
+    },
+    "info": {
+      "address": "Adres",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "footer": {
+    "company": "Şirket",
+    "quickLinks": "Hızlı Bağlantılar",
+    "contact": "İletişim",
+    "followUs": "Bizi Takip Edin",
+    "rights": "Tüm hakları saklıdır.",
+    "copyright": "Telif Hakkı"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "retry": "Tekrar Dene",
+    "close": "Kapat",
+    "readMore": "Devamını Oku",
+    "learnMore": "Daha Fazla Bilgi"
+  }
+}
