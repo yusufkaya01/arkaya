@@ -46,6 +46,10 @@ const Logo = styled(Link)`
 
   img {
     height: 40px;
+    /* <img> üzerindeki width/height öznitelikleri (CLS için gerekli) sunum
+       ipucu olarak CSS'e sızar; width: auto olmazsa logo gerçek piksel
+       genişliğine (1985px) esnetilir. */
+    width: auto;
     margin-right: ${theme.spacing.sm};
   }
 `;
@@ -325,7 +329,13 @@ export const Header = () => {
       <HeaderContainer $scrolled={scrolled}>
         <Nav>
           <Logo to="/">
-            <img src="/logo_company-name-right-side-of-logo.png" alt="Arkaya" />
+            <img
+              src="/logo_company-name-right-side-of-logo.png"
+              alt="Arkaya"
+              width="1985"
+              height="500"
+              decoding="async"
+            />
           </Logo>
 
           <NavLinks id="mobile-nav" $isOpen={mobileMenuOpen}>

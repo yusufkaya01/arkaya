@@ -7,6 +7,7 @@ import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Products } from './pages/Products';
 import { Contact } from './pages/Contact';
+import { NotFound } from './pages/NotFound';
 import ErrorBoundary from './components/ErrorBoundary';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { theme } from './styles/theme';
@@ -32,7 +33,10 @@ function App() {
               {/* Kaldırılan sayfalar için eski bağlantılar ürünlere yönlensin */}
               <Route path="/services" element={<Navigate to="/products" replace />} />
               <Route path="/products-simple" element={<Navigate to="/products" replace />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
+              {/* Bilinmeyen adres ana sayfaya YÖNLENDİRİLMEZ: bu, arama
+                  motorlarına "soft 404" olarak görünür. Gerçek 404 sayfası
+                  kendini `noindex` ile işaretler. */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />

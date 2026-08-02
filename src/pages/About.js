@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
+import { usePageSeo } from '../utils/seo';
 
 const PageContainer = styled.div`
   padding-top: 80px; // Account for fixed header
@@ -129,6 +130,7 @@ const StatCard = styled(motion.div)`
 
 export const About = () => {
   const { t } = useTranslation();
+  usePageSeo({ titleKey: 'seo.about.title', descriptionKey: 'seo.about.description', path: '/about' });
 
   const values = [
     {
@@ -186,7 +188,14 @@ export const About = () => {
               viewport={{ once: true }}
             >
               <ImageContainer>
-                <img src="/logo_company-name-below-logo-2.png" alt="Arkaya About" />
+                <img
+                  src="/logo_company-name-below-logo-2.png"
+                  alt="Arkaya Arge Yazılım İnşaat Tic. Ltd. Şti. logosu"
+                  width="1262"
+                  height="835"
+                  loading="lazy"
+                  decoding="async"
+                />
               </ImageContainer>
             </motion.div>
           </ContentGrid>

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
 import { PRODUCTS } from '../config/products';
+import { usePageSeo } from '../utils/seo';
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -191,6 +192,7 @@ const ProductGrid = styled.div`
 `;
 
 const ProductCard = styled(motion.div)`
+  position: relative; /* köşedeki bayi rozeti için */
   background: ${theme.colors.background};
   border: 1px solid ${theme.colors.border};
   border-top: 4px solid ${props => props.$accent};
@@ -226,18 +228,26 @@ const LogoSlot = styled.div`
   }
 `;
 
+/**
+ * Yalnızca bayisi olduğumuz ürünlerde görünür (kendi ürünlerimizde rozet yok).
+ * Tek bir kartta çıktığı için akışın içinde değil, kartın sağ üst köşesinde
+ * duruyor: aksi hâlde rozetsiz kartların metni yukarı kayar ve üç kartın
+ * satırları hizasız görünürdü.
+ */
 const OwnershipBadge = styled.span`
+  position: absolute;
+  top: ${theme.spacing.lg};
+  right: ${theme.spacing.lg};
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  align-self: flex-start;
   padding: 2px ${theme.spacing.sm};
   border: 1px solid ${theme.colors.border};
   border-radius: ${theme.borderRadius.full};
+  background: ${theme.colors.background};
   font-size: ${theme.fontSizes.xs};
   font-weight: 600;
   color: ${theme.colors.text.secondary};
-  margin-bottom: ${theme.spacing.md};
 
   &::before {
     content: '';
@@ -346,6 +356,7 @@ const displayUrl = (url) =>
 
 export const Home = () => {
   const { t } = useTranslation();
+  usePageSeo({ titleKey: 'seo.home.title', descriptionKey: 'seo.home.description', path: '/' });
 
   const reasons = t('home.why', { returnObjects: true });
   const whyItems = Array.isArray(reasons) ? reasons : [];
@@ -376,7 +387,16 @@ export const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <HeroImage>
-              <img src="/logo_company-name-below-logo.png" alt="Arkaya" />
+              {/* Sayfanın en büyük görseli = LCP adayı: erken indirilsin,
+                  ölçüleri baştan bilinsin (yer ayrılır, kayma olmaz). */}
+              <img
+                src="/logo_company-name-below-logo.png"
+                alt="Arkaya Arge Yazılım İnşaat Tic. Ltd. Şti. logosu"
+                width="1561"
+                height="968"
+                fetchpriority="high"
+                decoding="async"
+              />
             </HeroImage>
           </motion.div>
         </HeroContent>
@@ -400,12 +420,18 @@ export const Home = () => {
                 <LogoSlot>
                   <img
                     src={product.logo}
-                    alt={t(`products.${product.key}.name`)}
+                    alt={`${t(`products.${product.key}.name`)} logosu`}
+                    width={product.logoWidth}
+                    height={product.logoHeight}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </LogoSlot>
-                <OwnershipBadge $accent={product.accent}>
-                  {product.own ? t('products.badgeOwn') : t('products.badgeReseller')}
-                </OwnershipBadge>
+                {!product.own && (
+                  <OwnershipBadge $accent={product.accent}>
+                    {t('products.badgeReseller')}
+                  </OwnershipBadge>
+                )}
                 <Tagline $accent={product.accent}>
                   {t(`products.${product.key}.tagline`)}
                 </Tagline>

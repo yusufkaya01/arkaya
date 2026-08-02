@@ -2,7 +2,7 @@
 
 Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi'nin kurumsal web sitesi. React ve JavaScript ile geliştirilmiştir.
 
-Site, şirketin yazılım ürünlerini tanıtır: iş sağlığı ve güvenliği sektörü için geliştirdiğimiz **Katip Otomasyonu** ve **İSG Asistan**, ve satış bayisi olduğumuz ağ güvenliği çözümü **XLog**.
+Site, şirketin yazılım ürünlerini tanıtır: iş sağlığı ve güvenliği sektörü için geliştirdiğimiz **Katip Otomasyonu** ve **İSG Asistan**, ve satış bayisi olduğumuz ağ güvenliği çözümü **XLog Firewall**.
 
 ## Features
 
@@ -96,7 +96,7 @@ src/
 Her ürün için logo, konumlandırma, açıklama, özellik listesi ve ürün sitesine bağlantı:
 - **Katip Otomasyonu** — İSG-KATİP için Chrome uzantısı (kendi ürünümüz)
 - **İSG Asistan** — OSGB'ler için bulut tabanlı yönetim platformu (kendi ürünümüz)
-- **XLog** — Ağ Güvenlik ve Loglama Sistemi (satış bayisiyiz)
+- **XLog Firewall** — UTM güvenlik duvarı ve 5651 loglama (satış bayisiyiz)
 
 `/products#katip`, `/products#isgAsistan`, `/products#xlog` bağlantılarıyla ilgili ürüne doğrudan inilebilir.
 
@@ -115,6 +115,69 @@ Her ürün için logo, konumlandırma, açıklama, özellik listesi ve ürün si
    (`name`, `tagline`, `short`, `description`, `features` veya `featuresDetailed`).
 
 Ana Sayfa ve Ürünler sayfası aynı kaynağı kullandığı için başka bir değişiklik gerekmez.
+
+## SEO — yeni sayfa eklerken
+
+Site tek bir `public/index.html` üzerinden çalışan bir SPA. Bu yüzden bir rota
+eklerken **üç yerin birden** güncellenmesi gerekir:
+
+1. `src/App.js` — rota tanımı.
+2. `public/sitemap.xml` — yeni URL. (Yönlendirme rotaları buraya girmez.)
+3. Sayfa bileşeninin en üstünde `usePageSeo({ titleKey, descriptionKey, path })`
+   + `src/locales/tr.json` **ve** `en.json` içine `seo.<sayfa>.title|description`.
+
+Üçüncü adım atlanırsa sayfa, `index.html`'deki sabit canonical yüzünden ana
+sayfanın kopyası olarak beyan edilir ve Google dizine almaz — site haritasında
+yer alması bunu değiştirmez. `src/utils/seo.test.js` bu davranışı test eder.
+
+**Yapısal veri (JSON-LD, `public/index.html`):** hiçbir kalemi `"@type": "Product"`
+yapmayın. Google, Product düğümlerinde `offers` / `review` / `aggregateRating`
+alanlarından birini zorunlu tutar; sitede fiyat ve puan yayınlamadığımız için
+bunlar dürüstçe doldurulamaz ve Search Console kritik hata verir. Fiyat
+yayınlanana kadar doğru tip `Service` veya `SoftwareApplication`.
+
+Diğer kalıcı kurallar:
+
+- **Varsayılan dil Türkçe.** `src/i18n.js` içinde dil algılama sırası bilerek
+  `['localStorage', 'cookie']`; `navigator` listede yok. Googlebot siteyi ABD'den
+  `en-US` ile render ettiği için tarayıcı dili dinlenirse arama motoru sitenin
+  İngilizce sürümünü dizine alır.
+- **Paylaşım görseli** `public/og-image.png` (1200×630) ve `index.html` içinde
+  **mutlak** adresle veriliyor. Göreli adres (`/og-image.png`) WhatsApp, LinkedIn
+  ve Facebook önizlemelerinde çalışmaz.
+- **Bilinmeyen adres ana sayfaya yönlendirilmez** — `src/pages/NotFound.js`
+  gösterilir ve kendini `noindex` ile işaretler (soft 404 önlemi).
+- **`<img>` etiketlerine gerçek `width`/`height` yazın** (CLS için). Dikkat: bu
+  öznitelikler CSS'e sunum ipucu olarak sızar; görselin CSS'inde yalnızca
+  `height` varsa mutlaka `width: auto` da ekleyin, yoksa görsel gerçek piksel
+  genişliğine esner.
+
+## Site ikonları (favicon)
+
+Tümü `public/only-logo.png`'den üretildi. Google arama sonuçlarında ve tarayıcı
+sekmesinde görünen ikon budur — CRA'nın varsayılan React `favicon.ico`'su
+buradan temizlendi. Logo değişirse hepsini yeniden üretin:
+
+```bash
+magick public/only-logo.png -trim +repage -resize 448x448 \
+  -background none -gravity center -extent 512x512 /tmp/mark-512.png
+magick /tmp/mark-512.png -fill white -colorize 100 /tmp/mark-512-white.png
+
+magick /tmp/mark-512.png -define icon:auto-resize=48,32,16 public/favicon.ico
+magick /tmp/mark-512.png -resize 156x156 -background white -alpha remove \
+  -gravity center -extent 180x180 public/apple-touch-icon.png
+magick /tmp/mark-512.png -resize 166x166 -background white -alpha remove \
+  -gravity center -extent 192x192 public/logo192.png
+magick /tmp/mark-512.png -resize 442x442 -background white -alpha remove \
+  -gravity center -extent 512x512 public/logo512.png
+```
+
+`public/favicon.svg` iki base64 PNG (siyah + beyaz) içerir ve
+`prefers-color-scheme: dark` sorgusuyla aralarında geçiş yapar — koyu temalı
+tarayıcılarda siyah logo görünmediği için. Bu dosyayı yeniden üretmek için iki
+PNG'yi 128px'e küçültüp base64'e çevirin ve dosyadaki `href` değerlerini
+değiştirin; `favicon.ico` (tek renk, siyah) SVG desteklemeyen istemciler için
+yedektir.
 
 ## License
 

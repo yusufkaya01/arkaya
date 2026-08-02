@@ -28,9 +28,16 @@ i18n
       escapeValue: false
     },
     detection: {
-      // localStorage önce: kullanıcı dili değiştirdiyse sayfa yenilenince
-      // tarayıcı dili tercihi ezmesin.
-      order: ['localStorage', 'cookie', 'navigator'],
+      // SADECE kullanıcının açık tercihi (dil değiştiriciyle seçip sakladığı)
+      // dikkate alınır; tercih yoksa fallbackLng olan Türkçe açılır.
+      //
+      // 'navigator' bilerek listede DEĞİL: Googlebot sayfayı ABD'den, en-US
+      // dilinde render eder. Tarayıcı dili dinlenirse arama motoru bu Türk
+      // şirketinin sitesini İNGİLİZCE görür ve Türkçe içerik hiç dizine
+      // girmez. Hedef kitle Türkiye'deki OSGB'ler olduğu için varsayılan
+      // Türkçe olmalı; İngilizce isteyen ziyaretçi üstteki dil düğmesiyle
+      // geçer ve tercihi localStorage'da kalır.
+      order: ['localStorage', 'cookie'],
       caches: ['localStorage', 'cookie']
     }
   });

@@ -8,7 +8,7 @@
   "hero": {
     "badge": "Kendi yazılım ürünlerimizi geliştiriyoruz",
     "title": "İş sağlığı ve güvenliği sektörü için yazılım ürünleri",
-    "subtitle": "OSGB'ler ve İSG profesyonelleri için bulut tabanlı SaaS uygulamaları geliştiriyoruz. Ağ güvenliği ve 5651 loglama tarafında ise XLog satış bayisi olarak kurumların altyapısını koruyoruz.",
+    "subtitle": "OSGB'ler ve İSG profesyonelleri için bulut tabanlı SaaS uygulamaları geliştiriyoruz. Ağ güvenliği ve 5651 loglama tarafında ise XLog Firewall satış bayisi olarak kurumların altyapısını koruyoruz.",
     "cta": "Ürünlerimizi İnceleyin",
     "contactUs": "İletişime Geçin"
   },
@@ -42,7 +42,7 @@
   "about": {
     "title": "Arkaya Hakkında",
     "description": "Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi, Isparta merkezli bir yazılım şirketidir. İş sağlığı ve güvenliği sektörü için bulut tabanlı SaaS uygulamaları ve kurumsal ağ güvenliği çözümleri geliştiriyoruz.",
-    "description2": "Proje bazlı yazılım işi almak yerine kendi ürünlerimize odaklanıyoruz: Katip Otomasyonu ve İSG Asistan'ı tek çatı altında geliştiriyor, güncelliyor ve destekliyoruz. Ağ güvenliği tarafında ise XLog satış bayisi olarak kurumlara güvenlik duvarı ve 5651 loglama çözümü sunuyoruz.",
+    "description2": "Proje bazlı yazılım işi almak yerine kendi ürünlerimize odaklanıyoruz: Katip Otomasyonu ve İSG Asistan'ı tek çatı altında geliştiriyor, güncelliyor ve destekliyoruz. Ağ güvenliği tarafında ise XLog Firewall satış bayisi olarak kurumlara güvenlik duvarı ve 5651 loglama çözümü sunuyoruz.",
     "mission": "Misyonumuz",
     "missionText": "İSG profesyonellerinin zamanını evrak ve takip işlerinden kurtarmak; mevzuata uyumlu, güvenilir ve kullanması kolay yazılımlarla günlük işi hızlandırmak.",
     "vision": "Vizyonumuz",
@@ -65,7 +65,6 @@
     "featuresTitle": "Öne Çıkan Özellikler",
     "visit": "Ürün Web Sitesini Ziyaret Et",
     "detail": "Detayları İncele",
-    "badgeOwn": "Kendi Ürünümüz",
     "badgeReseller": "Satış Bayisi",
     "katip": {
       "name": "Katip Otomasyonu",
@@ -98,11 +97,11 @@
       ]
     },
     "xlog": {
-      "name": "XLog",
+      "name": "XLog Firewall",
       "tagline": "UTM güvenlik duvarı ve 5651 loglama",
-      "short": "Kurumsal ağınızı koruyan, 5651'e uygun log kaydı tutan UTM güvenlik duvarı. Arkaya, XLog satış bayisidir.",
-      "description": "XLog, kurumsal ağınızı saldırılara karşı koruyan ve 5651 sayılı kanun kapsamında log kaydı tutan bir UTM güvenlik duvarı cihazıdır. Tüm log kayıtları TÜBİTAK Zaman Damgası ile imzalanarak cihaz üzerinde saklanır. Türkçe ve İngilizce web arayüzünden yönetilir.",
-      "resellerNote": "Arkaya, XLog satış bayisidir. Kurumunuza uygun modelin belirlenmesi, satış ve kurulum süreçlerinde bize ulaşabilirsiniz.",
+      "short": "Kurumsal ağınızı koruyan, 5651'e uygun log kaydı tutan UTM güvenlik duvarı. Arkaya, XLog Firewall satış bayisidir.",
+      "description": "XLog Firewall, kurumsal ağınızı saldırılara karşı koruyan ve 5651 sayılı kanun kapsamında log kaydı tutan bir UTM güvenlik duvarı cihazıdır. Tüm log kayıtları TÜBİTAK Zaman Damgası ile imzalanarak cihaz üzerinde saklanır. Türkçe ve İngilizce web arayüzünden yönetilir.",
+      "resellerNote": "Arkaya, XLog Firewall satış bayisidir. Kurumunuza uygun modelin belirlenmesi, satış ve kurulum süreçlerinde bize ulaşabilirsiniz.",
       "featuresDetailed": [
         {
           "title": "Güvenlik Duvarı",
@@ -187,7 +186,7 @@
     }
   },
   "footer": {
-    "tagline": "İş sağlığı ve güvenliği sektörü için SaaS uygulamaları geliştiriyor, XLog satış bayisi olarak kurumsal ağ güvenliği çözümleri sunuyoruz.",
+    "tagline": "İş sağlığı ve güvenliği sektörü için SaaS uygulamaları geliştiriyor, XLog Firewall satış bayisi olarak kurumsal ağ güvenliği çözümleri sunuyoruz.",
     "products": "Ürünler",
     "quickLinks": "Hızlı Bağlantılar",
     "contact": "İletişim",
@@ -200,5 +199,34 @@
     "close": "Kapat",
     "readMore": "Devamını Oku",
     "learnMore": "Daha Fazla Bilgi"
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "text": "Aradığınız sayfa taşınmış, adı değişmiş ya da hiç var olmamış olabilir. Aşağıdaki bağlantılardan devam edebilirsiniz.",
+    "home": "Ana Sayfa",
+    "products": "Ürünler",
+    "contact": "İletişim"
+  },
+  "seo": {
+    "notFound": {
+      "title": "Sayfa bulunamadı | Arkaya",
+      "description": "Aradığınız sayfa bulunamadı. Arkaya ürünleri ve iletişim bilgileri için ana sayfaya dönebilirsiniz."
+    },
+    "home": {
+      "title": "Arkaya ARGE - İSG Yazılımları ve Ağ Güvenliği Çözümleri",
+      "description": "İş sağlığı ve güvenliği için SaaS uygulamaları: Katip Otomasyonu ve İSG Asistan. XLog Firewall bayisi olarak ağ güvenliği ve 5651 loglama çözümleri."
+    },
+    "products": {
+      "title": "Ürünlerimiz: Katip Otomasyonu, İSG Asistan, XLog Firewall",
+      "description": "Geliştirdiğimiz iki SaaS uygulaması (Katip Otomasyonu, İSG Asistan) ve satış bayisi olduğumuz XLog Firewall hakkında ayrıntılı bilgi."
+    },
+    "about": {
+      "title": "Hakkımızda | Arkaya",
+      "description": "Arkaya, Isparta merkezli bir yazılım şirketidir. İSG sektörü için bulut tabanlı SaaS uygulamaları ve kurumsal ağ güvenliği çözümleri geliştiriyoruz."
+    },
+    "contact": {
+      "title": "İletişim | Arkaya",
+      "description": "Ürünlerimiz, demo talepleriniz veya iş birliği teklifleriniz için bize ulaşın. Telefon, e-posta ve WhatsApp ile Arkaya iletişim bilgileri."
+    }
   }
 }

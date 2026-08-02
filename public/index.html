@@ -2,14 +2,20 @@
 <html lang="tr">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/only-logo.png" />
+    <!--
+      Site ikonları. Hepsi public/only-logo.png'den üretildi (bkz. README).
+      favicon.svg içinde koyu tema için beyaz sürüm var; SVG'yi desteklemeyen
+      istemciler ve Google favicon.ico'yu kullanır (48/32/16 px).
+    -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.svg" type="image/svg+xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Arkaya, iş sağlığı ve güvenliği sektörü için bulut tabanlı SaaS uygulamaları geliştirir: Katip Otomasyonu ve İSG Asistan. Ayrıca XLog satış bayisi olarak ağ güvenliği ve 5651 loglama çözümleri sunar."
+      content="İş sağlığı ve güvenliği için SaaS uygulamaları: Katip Otomasyonu ve İSG Asistan. XLog Firewall bayisi olarak ağ güvenliği ve 5651 loglama çözümleri."
     />
-    <meta name="keywords" content="arkaya, İSG yazılımı, OSGB yazılımı, İSG Asistan, Katip Otomasyonu, İSG-KATİP, XLog, XLog satış bayisi, güvenlik duvarı, 5651 loglama, ağ güvenliği, iş sağlığı ve güvenliği" />
+    <meta name="keywords" content="arkaya, İSG yazılımı, OSGB yazılımı, İSG Asistan, Katip Otomasyonu, İSG-KATİP, XLog Firewall, XLog satış bayisi, güvenlik duvarı, 5651 loglama, ağ güvenliği, iş sağlığı ve güvenliği" />
     <meta name="author" content="Arkaya" />
     <link rel="canonical" href="https://arkaya.com.tr/" />
 
@@ -18,18 +24,26 @@
     <meta property="og:url" content="https://arkaya.com.tr/" />
     <meta property="og:site_name" content="Arkaya" />
     <meta property="og:locale" content="tr_TR" />
-    <meta property="og:title" content="Arkaya - İSG Yazılımları ve Ağ Güvenliği Çözümleri" />
-    <meta property="og:description" content="İş sağlığı ve güvenliği için SaaS uygulamaları: Katip Otomasyonu ve İSG Asistan. XLog satış bayisi olarak ağ güvenliği ve 5651 loglama çözümleri." />
-    <meta property="og:image" content="%PUBLIC_URL%/logo_company-name-below-logo.png" />
+    <meta property="og:title" content="Arkaya ARGE - İSG Yazılımları ve Ağ Güvenliği Çözümleri" />
+    <meta property="og:description" content="İş sağlığı ve güvenliği için SaaS uygulamaları: Katip Otomasyonu ve İSG Asistan. XLog Firewall satış bayisi olarak ağ güvenliği ve 5651 loglama çözümleri." />
+    <!-- Paylaşım görselleri MUTLAK adres olmalı: %PUBLIC_URL% derlemede boş
+         dizeye dönüşür ve "/og-image.png" gibi göreli bir adres Facebook,
+         LinkedIn, X ve WhatsApp tarafından çözülemez — önizleme görselsiz çıkar. -->
+    <meta property="og:image" content="https://arkaya.com.tr/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Arkaya Arge Yazılım İnşaat Tic. Ltd. Şti. logosu" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://arkaya.com.tr/" />
-    <meta property="twitter:title" content="Arkaya - İSG Yazılımları ve Ağ Güvenliği Çözümleri" />
-    <meta property="twitter:description" content="İş sağlığı ve güvenliği için SaaS uygulamaları: Katip Otomasyonu ve İSG Asistan. XLog satış bayisi olarak ağ güvenliği ve 5651 loglama çözümleri." />
-    <meta property="twitter:image" content="%PUBLIC_URL%/logo_company-name-below-logo.png" />
+    <meta property="twitter:title" content="Arkaya ARGE - İSG Yazılımları ve Ağ Güvenliği Çözümleri" />
+    <meta property="twitter:description" content="İş sağlığı ve güvenliği için SaaS uygulamaları: Katip Otomasyonu ve İSG Asistan. XLog Firewall satış bayisi olarak ağ güvenliği ve 5651 loglama çözümleri." />
+    <meta property="twitter:image" content="https://arkaya.com.tr/og-image.png" />
+    <meta property="twitter:image:alt" content="Arkaya Arge Yazılım İnşaat Tic. Ltd. Şti. logosu" />
     
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/only-logo.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
     <!-- Google Fonts -->
@@ -37,9 +51,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <title>Arkaya - İSG Yazılımları ve Ağ Güvenliği Çözümleri</title>
+    <title>Arkaya ARGE - İSG Yazılımları ve Ağ Güvenliği Çözümleri</title>
 
-    <!-- Yapısal veri: şirket ve ürünler -->
+    <!--
+      Yapısal veri: şirket ve sunduğumuz çözümler.
+
+      DİKKAT — buradaki hiçbir kalemi "@type": "Product" yapmayın. Google, Product
+      tipindeki her düğümde `offers` (fiyat + para birimi), `review` ya da
+      `aggregateRating` alanlarından en az birini zorunlu tutar; sitede fiyat da
+      puan da yayınlamadığımız için bu alanlar dürüstçe doldurulamaz ve Search
+      Console "Product snippets" kritik hatası verir (WNC-10030322, Temmuz 2026).
+      Fiyat/yorum yayınlanmadığı sürece doğru tip: Service veya SoftwareApplication.
+    -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -49,10 +72,18 @@
         "url": "https://arkaya.com.tr/",
         "logo": "https://arkaya.com.tr/logo_company-name-below-logo.png",
         "email": "info@arkaya.com.tr",
+        "telephone": "+905015448544",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Isparta",
           "addressCountry": "TR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "info@arkaya.com.tr",
+          "telephone": "+905015448544",
+          "availableLanguage": ["Turkish", "English"]
         },
         "makesOffer": [
           {
@@ -76,10 +107,15 @@
           {
             "@type": "Offer",
             "itemOffered": {
-              "@type": "Product",
-              "name": "XLog",
-              "description": "Ağ Güvenlik ve Loglama Sistemi",
-              "url": "https://xlog.com.tr/"
+              "@type": "Service",
+              "name": "XLog Firewall",
+              "serviceType": "UTM güvenlik duvarı ve 5651 loglama çözümü",
+              "description": "Kurumsal ağı koruyan, 5651 sayılı kanuna uygun log kaydı tutan UTM güvenlik duvarı. Arkaya, XLog Firewall satış bayisidir.",
+              "url": "https://xlog.com.tr/",
+              "provider": {
+                "@type": "Organization",
+                "name": "Arkaya"
+              }
             }
           }
         ]

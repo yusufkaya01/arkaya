@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Site haritası — src/App.js içindeki gerçek rotalarla birebir aynı olmalı.
+  Yeni bir sayfa eklerken buraya da ekleyin; /services ve /products-simple gibi
+  yönlendirme rotaları site haritasına GİRMEZ (Google yönlendirilen URL'leri
+  "geçersiz" olarak raporlar).
+  <lastmod> değerini sayfa içeriği gerçekten değiştiğinde güncelleyin.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://arkaya.com.tr/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://arkaya.com.tr/products</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://arkaya.com.tr/about</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://arkaya.com.tr/contact</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>

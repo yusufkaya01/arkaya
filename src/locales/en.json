@@ -8,7 +8,7 @@
   "hero": {
     "badge": "We build our own software products",
     "title": "Software products for the occupational health & safety industry",
-    "subtitle": "We build cloud-based SaaS applications for OHS service providers and safety professionals. On the network side, as an XLog reseller we protect the infrastructure of institutions with firewall security and Law 5651 logging.",
+    "subtitle": "We build cloud-based SaaS applications for OHS service providers and safety professionals. On the network side, as an XLog Firewall reseller we protect the infrastructure of institutions with firewall security and Law 5651 logging.",
     "cta": "Explore Our Products",
     "contactUs": "Get in Touch"
   },
@@ -42,7 +42,7 @@
   "about": {
     "title": "About Arkaya",
     "description": "Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi is a software company based in Isparta, Türkiye. We build cloud-based SaaS applications for the occupational health & safety industry, along with corporate network security solutions.",
-    "description2": "Instead of taking on project-based software work, we focus on our own products: we develop, maintain and support Katip Otomasyonu and İSG Asistan under one roof. On the network security side, as an XLog reseller we provide institutions with firewall and Law 5651 logging solutions.",
+    "description2": "Instead of taking on project-based software work, we focus on our own products: we develop, maintain and support Katip Otomasyonu and İSG Asistan under one roof. On the network security side, as an XLog Firewall reseller we provide institutions with firewall and Law 5651 logging solutions.",
     "mission": "Our Mission",
     "missionText": "To free OHS professionals from paperwork and manual tracking, and to speed up their daily work with compliant, reliable and easy-to-use software.",
     "vision": "Our Vision",
@@ -65,7 +65,6 @@
     "featuresTitle": "Key Features",
     "visit": "Visit Product Website",
     "detail": "View Details",
-    "badgeOwn": "Our Own Product",
     "badgeReseller": "Reseller",
     "katip": {
       "name": "Katip Otomasyonu",
@@ -98,11 +97,11 @@
       ]
     },
     "xlog": {
-      "name": "XLog",
+      "name": "XLog Firewall",
       "tagline": "UTM firewall and Law 5651 logging",
-      "short": "A UTM firewall that protects your corporate network and keeps log records compliant with Law 5651. Arkaya is an XLog reseller.",
-      "description": "XLog is a UTM firewall appliance that protects your corporate network against attacks and keeps log records in line with Turkish Law No. 5651. All log records are signed with a TÜBİTAK Time Stamp and stored on the device. It is managed through a web interface available in Turkish and English.",
-      "resellerNote": "Arkaya is an XLog reseller. Get in touch with us to determine the right model for your organization, and for the sales and installation process.",
+      "short": "A UTM firewall that protects your corporate network and keeps log records compliant with Law 5651. Arkaya is an XLog Firewall reseller.",
+      "description": "XLog Firewall is a UTM firewall appliance that protects your corporate network against attacks and keeps log records in line with Turkish Law No. 5651. All log records are signed with a TÜBİTAK Time Stamp and stored on the device. It is managed through a web interface available in Turkish and English.",
+      "resellerNote": "Arkaya is an XLog Firewall reseller. Get in touch with us to determine the right model for your organization, and for the sales and installation process.",
       "featuresDetailed": [
         {
           "title": "Firewall",
@@ -187,7 +186,7 @@
     }
   },
   "footer": {
-    "tagline": "We build SaaS applications for the occupational health & safety industry and, as an XLog reseller, provide corporate network security solutions.",
+    "tagline": "We build SaaS applications for the occupational health & safety industry and, as an XLog Firewall reseller, provide corporate network security solutions.",
     "products": "Products",
     "quickLinks": "Quick Links",
     "contact": "Contact",
@@ -200,5 +199,34 @@
     "close": "Close",
     "readMore": "Read More",
     "learnMore": "Learn More"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you are looking for may have moved, been renamed, or never existed. Use the links below to continue.",
+    "home": "Home",
+    "products": "Products",
+    "contact": "Contact"
+  },
+  "seo": {
+    "notFound": {
+      "title": "Page not found | Arkaya",
+      "description": "The page you are looking for could not be found. Return to the home page for Arkaya products and contact details."
+    },
+    "home": {
+      "title": "Arkaya ARGE - OHS Software and Network Security Solutions",
+      "description": "SaaS applications for occupational health & safety: Katip Otomasyonu and İSG Asistan. As an XLog Firewall reseller, network security and 5651 logging."
+    },
+    "products": {
+      "title": "Products: Katip Otomasyonu, İSG Asistan, XLog Firewall",
+      "description": "Details on the two SaaS applications we build (Katip Otomasyonu, İSG Asistan) and the XLog Firewall appliance we resell."
+    },
+    "about": {
+      "title": "About Us | Arkaya",
+      "description": "Arkaya is a software company based in Isparta, Türkiye. We build cloud-based SaaS applications for the OHS industry and corporate network security solutions."
+    },
+    "contact": {
+      "title": "Contact | Arkaya",
+      "description": "Get in touch about our products, demo requests or partnership proposals. Arkaya contact details by phone, e-mail and WhatsApp."
+    }
   }
 }

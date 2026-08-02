@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
 import { PRODUCTS } from '../config/products';
+import { usePageSeo } from '../utils/seo';
 
 const PageContainer = styled.div`
   padding-top: 80px;
@@ -248,6 +249,7 @@ const SecondaryLink = styled(Link)`
 
 export const Products = () => {
   const { t } = useTranslation();
+  usePageSeo({ titleKey: 'seo.products.title', descriptionKey: 'seo.products.description', path: '/products' });
   const { hash } = useLocation();
 
   // /products#xlog gibi bağlantılarla doğrudan ürüne inilebilsin.
@@ -284,15 +286,24 @@ export const Products = () => {
             <Container>
               <ProductHeader>
                 <LogoSlot>
-                  <img src={product.logo} alt={t(`${base}.name`)} />
+                  <img
+                    src={product.logo}
+                    alt={`${t(`${base}.name`)} logosu`}
+                    width={product.logoWidth}
+                    height={product.logoHeight}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
                 </LogoSlot>
                 <HeaderText>
                   <h2>{t(`${base}.name`)}</h2>
                   <TaglineRow>
                     <Tagline $accent={product.accent}>{t(`${base}.tagline`)}</Tagline>
-                    <StatusBadge $accent={product.accent}>
-                      {product.own ? t('products.badgeOwn') : t('products.badgeReseller')}
-                    </StatusBadge>
+                    {!product.own && (
+                      <StatusBadge $accent={product.accent}>
+                        {t('products.badgeReseller')}
+                      </StatusBadge>
+                    )}
                   </TaglineRow>
                 </HeaderText>
               </ProductHeader>

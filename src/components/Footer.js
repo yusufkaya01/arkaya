@@ -57,6 +57,9 @@ const Logo = styled.div`
 
   img {
     height: 40px;
+    /* width/height öznitelikleri CSS'e sunum ipucu olarak sızar — width: auto
+       olmazsa logo gerçek piksel genişliğine esnetilir. */
+    width: auto;
     margin-right: ${theme.spacing.sm};
     filter: brightness(0) invert(1);
   }
@@ -136,7 +139,14 @@ export const Footer = () => {
       <FooterContent>
         <FooterSection>
           <Logo>
-            <img src="/only-logo.png" alt="Arkaya" />
+            <img
+              src="/only-logo.png"
+              alt="Arkaya"
+              width="711"
+              height="500"
+              loading="lazy"
+              decoding="async"
+            />
             <span>{process.env.REACT_APP_COMPANY_SHORT_NAME}</span>
           </Logo>
           <p>

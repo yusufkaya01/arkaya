@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
+import { usePageSeo } from '../utils/seo';
 
 const PageContainer = styled.div`
   padding-top: 80px;
@@ -215,6 +216,7 @@ const EMPTY_FORM = { name: '', email: '', phone: '', subject: '', message: '' };
 
 export const Contact = () => {
   const { t, i18n } = useTranslation();
+  usePageSeo({ titleKey: 'seo.contact.title', descriptionKey: 'seo.contact.description', path: '/contact' });
   const [formData, setFormData] = useState(EMPTY_FORM);
   const [honeypot, setHoneypot] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);

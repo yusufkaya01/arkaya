@@ -1,25 +1,28 @@
 {
   "short_name": "Arkaya",
-  "name": "Arkaya - İSG Yazılımları ve Ağ Güvenliği Çözümleri",
+  "name": "Arkaya ARGE - İSG Yazılımları ve Ağ Güvenliği Çözümleri",
+  "description": "İş sağlığı ve güvenliği sektörü için SaaS uygulamaları ve kurumsal ağ güvenliği çözümleri.",
   "icons": [
     {
-      "src": "only-logo.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/png"
+      "src": "favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
     },
     {
-      "src": "only-logo.png",
+      "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "only-logo.png",
+      "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "lang": "tr",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
