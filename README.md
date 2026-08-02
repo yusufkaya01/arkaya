@@ -122,7 +122,8 @@ Site tek bir `public/index.html` üzerinden çalışan bir SPA. Bu yüzden bir r
 eklerken **üç yerin birden** güncellenmesi gerekir:
 
 1. `src/App.js` — rota tanımı.
-2. `public/sitemap.xml` — yeni URL. (Yönlendirme rotaları buraya girmez.)
+2. `public/sitemap.txt` **ve** `public/sitemap.xml` — yeni URL. (Yönlendirme
+   rotaları buraya girmez.) İki dosyanın da olmasının sebebi aşağıda.
 3. Sayfa bileşeninin en üstünde `usePageSeo({ titleKey, descriptionKey, path })`
    + `src/locales/tr.json` **ve** `en.json` içine `seo.<sayfa>.title|description`.
 
@@ -151,6 +152,36 @@ Diğer kalıcı kurallar:
   öznitelikler CSS'e sunum ipucu olarak sızar; görselin CSS'inde yalnızca
   `height` varsa mutlaka `width: auto` da ekleyin, yoksa görsel gerçek piksel
   genişliğine esner.
+
+### Neden iki site haritası var (Amplify rewrite tuzağı)
+
+Amplify'ın varsayılan SPA kuralı, uzantısı **muafiyet listesinde olmayan** her
+isteği `/index.html`'e 200 ile yeniden yazar. Listede `css|gif|ico|jpg|js|png|
+txt|svg|woff|woff2|ttf|map|json` var — **`xml` yok**. Sonuç:
+`https://arkaya.com.tr/sitemap.xml` `content-type: text/html` ile ana sayfayı
+döndürür ve Google "site haritası okunamadı" der. `robots.txt` çalışır, çünkü
+`txt` listede.
+
+Bu yüzden yayında olan `sitemap.txt` (düz metin site haritası — Google destekler,
+her satırda bir URL, yorum satırı **yasak**). Kalıcı çözüm konsolda:
+
+**Hosting → Rewrites and redirects** → mevcut SPA kuralını düzenleyip listeye
+`xml` ekleyin (hazır girmişken `webp`, `webmanifest` de faydalı):
+
+```
+</^[^.]+$|\.(?!(css|gif|ico|jpg|jpeg|js|png|txt|svg|webp|woff|woff2|ttf|map|json|xml|webmanifest)$)([^.]+$)/>
+```
+
+Hedef `/index.html`, tip **200 (Rewrite)**. Listeyi konsoldakinin üzerine ekleyin,
+körlemesine yapıştırmayın. Sonrasında `robots.txt` içindeki `sitemap.xml`
+satırının yorumunu kaldırabilirsiniz.
+
+Doğrulama (ikisi de kendi içerik tipiyle dönmeli):
+
+```bash
+curl -sI https://arkaya.com.tr/sitemap.txt | grep -i content-type   # text/plain
+curl -sI https://arkaya.com.tr/sitemap.xml | grep -i content-type   # text/xml
+```
 
 ## Site ikonları (favicon)
 

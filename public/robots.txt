@@ -2,4 +2,10 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arkaya.com.tr/sitemap.xml
+# Düz metin site haritası. XML sürümü (sitemap.xml) de depoda duruyor ama
+# Amplify'ın SPA rewrite kuralı .xml isteklerini index.html'e çevirdiği için
+# şu an HTML dönüyor ve Google onu okuyamıyor. Kuraldaki muafiyet listesine
+# "xml" eklendiğinde alttaki satırın yorumunu kaldırın — ikisi birden durabilir,
+# Google URL'leri tekilleştirir. Ayrıntı: README "SEO — yeni sayfa eklerken".
+Sitemap: https://arkaya.com.tr/sitemap.txt
+# Sitemap: https://arkaya.com.tr/sitemap.xml
