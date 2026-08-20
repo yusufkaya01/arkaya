@@ -52,7 +52,7 @@ REACT_APP_XLOG_URL=https://xlog.com.tr/
 REACT_APP_PHONE=+90 501 544 85 44
 REACT_APP_WHATSAPP=905015448544
 REACT_APP_EMAIL=info@arkaya.com.tr
-REACT_APP_ADDRESS=Isparta, Türkiye
+REACT_APP_ADDRESS=Göller Bölgesi Teknokenti, Süleyman Demirel Üniversitesi, Doğu Yerleşke, Çünür Mh. 102. Cd. No: 252, Giriş Kat, Ofis No: 102, Merkez / ISPARTA
 ```
 
 ## Deployment to AWS Amplify
