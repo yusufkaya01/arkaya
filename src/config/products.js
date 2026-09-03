@@ -12,7 +12,16 @@
  * `logoWidth` / `logoHeight`: görselin GERÇEK piksel ölçüsü. `<img>` etiketine
  * yazılıyor ki tarayıcı yer ayırabilsin; olmazsa logo yüklenirken kart zıplar
  * (Core Web Vitals'ta CLS puanı). Logoyu değiştirirsen bu iki değeri de güncelle.
+ *
+ * `etbisRegistered`: ürünün SATIŞ SİTESİ Ticaret Bakanlığı ETBİS'e kayıtlı
+ * (Eylül 2026: katipotomasyonu.com ve www.isgasistan.tr). Kayıt ürüne/siteye
+ * aittir, arkaya.com.tr'ye değil — bu site e-ticaret yapmadığı için ETBİS'e
+ * kayıtlı DEĞİLDİR ve öyle yazılmaz. Küçük rozet yalnız işaretli ürünlerde
+ * çıkar; bir kayıt askıya alınırsa bayrağı kaldır. Karekod/rozet programı
+ * 02.09.2025'te sonlandırıldı; doğrulama yalnız kamuya açık sorgulama sayfasından.
  */
+export const ETBIS_QUERY_URL = 'https://etbis.ticaret.gov.tr/tr/SiteSorgulama';
+
 export const PRODUCTS = [
   {
     key: 'katip',
@@ -21,7 +30,8 @@ export const PRODUCTS = [
     logoHeight: 519,
     url: process.env.REACT_APP_KATIP_URL || 'https://www.katipotomasyonu.com/',
     accent: '#A80B33',
-    own: true
+    own: true,
+    etbisRegistered: true
   },
   {
     key: 'isgAsistan',
@@ -30,7 +40,8 @@ export const PRODUCTS = [
     logoHeight: 256,
     url: process.env.REACT_APP_ISG_ASISTAN_URL || 'https://isgasistan.tr',
     accent: '#0E4361',
-    own: true
+    own: true,
+    etbisRegistered: true
   },
   {
     key: 'xlog',

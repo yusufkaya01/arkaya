@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
-import { PRODUCTS } from '../config/products';
+import { PRODUCTS, ETBIS_QUERY_URL } from '../config/products';
 import { usePageSeo } from '../utils/seo';
 
 const PageContainer = styled.div`
@@ -112,6 +112,19 @@ const StatusBadge = styled.span`
     height: 6px;
     border-radius: 50%;
     background: ${props => props.$accent};
+  }
+`;
+
+/* ETBİS rozeti: StatusBadge ile aynı boyutta küçük bir pil, ama bağlantı —
+   kamuya açık sorgulama sayfasına gider (karekod programı 09.2025'te bitti). */
+const EtbisBadge = styled(StatusBadge)`
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: ${props => props.$accent};
+    color: ${theme.colors.text.primary};
   }
 `;
 
@@ -303,6 +316,19 @@ export const Products = () => {
                       <StatusBadge $accent={product.accent}>
                         {t('products.badgeReseller')}
                       </StatusBadge>
+                    )}
+                    {product.etbisRegistered && (
+                      <EtbisBadge
+                        as="a"
+                        href={ETBIS_QUERY_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={`${t('products.etbisNote')} ${t('products.etbisVerify')}.`}
+                        aria-label={`${t('products.etbisBadge')} — ${t('products.etbisVerify')}`}
+                        $accent={product.accent}
+                      >
+                        {t('products.etbisBadge')}
+                      </EtbisBadge>
                     )}
                   </TaglineRow>
                 </HeaderText>

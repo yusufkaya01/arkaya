@@ -66,6 +66,9 @@
     "visit": "Visit Product Website",
     "detail": "View Details",
     "badgeReseller": "Reseller",
+    "etbisBadge": "Registered with ETBİS",
+    "etbisNote": "The product website is registered as an e-commerce service provider with ETBİS, the Turkish Ministry of Trade's Electronic Commerce Information System.",
+    "etbisVerify": "Verify registration",
     "katip": {
       "name": "Katip Otomasyonu",
       "tagline": "Chrome extension for İSG-KATİP",

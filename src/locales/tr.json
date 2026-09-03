@@ -66,6 +66,9 @@
     "visit": "Ürün Web Sitesini Ziyaret Et",
     "detail": "Detayları İncele",
     "badgeReseller": "Satış Bayisi",
+    "etbisBadge": "ETBİS'e kayıtlı",
+    "etbisNote": "Ürün web sitesi, Ticaret Bakanlığı Elektronik Ticaret Bilgi Sistemi'ne (ETBİS) kayıtlı e-ticaret hizmet sağlayıcısıdır.",
+    "etbisVerify": "Kaydı sorgula",
     "katip": {
       "name": "Katip Otomasyonu",
       "tagline": "İSG-KATİP için Chrome uzantısı",

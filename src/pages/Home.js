@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
-import { PRODUCTS } from '../config/products';
+import { PRODUCTS, ETBIS_QUERY_URL } from '../config/products';
 import { usePageSeo } from '../utils/seo';
 
 const HeroSection = styled.section`
@@ -305,6 +305,37 @@ const ExternalLink = styled.a`
   }
 `;
 
+/**
+ * ETBİS satırı: yalnız satış sitesi ETBİS'e kayıtlı ürünlerde (config/products.js
+ * `etbisRegistered`). Tek satır, xs punto — kartın eylem satırının hemen üstünde.
+ * Akışın içindedir ama kartlar ızgarada eşit boya uzadığı ve CardText esnediği
+ * için eylem satırları yine hizalı kalır. Bağlantı, kamuya açık sorgulama sayfasına.
+ */
+const EtbisLine = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  margin: 0 0 ${theme.spacing.md} 0;
+  font-size: ${theme.fontSizes.xs};
+  font-weight: 600;
+  color: ${theme.colors.text.secondary};
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: ${props => props.$accent};
+  }
+
+  &:hover {
+    color: ${theme.colors.primary};
+  }
+`;
+
 const WhyGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -436,6 +467,17 @@ export const Home = () => {
                   {t(`products.${product.key}.tagline`)}
                 </Tagline>
                 <CardText>{t(`products.${product.key}.short`)}</CardText>
+                {product.etbisRegistered && (
+                  <EtbisLine
+                    href={ETBIS_QUERY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={t('products.etbisNote')}
+                    $accent={product.accent}
+                  >
+                    {t('products.etbisBadge')} · {t('products.etbisVerify')}
+                  </EtbisLine>
+                )}
                 <CardActions>
                   <TextLink to="/products">{t('products.detail')}</TextLink>
                   <ExternalLink
