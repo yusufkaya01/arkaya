@@ -155,7 +155,17 @@
           "description": "All log records kept on the system are signed with a TÜBİTAK Time Stamp and stored on the device."
         }
       ]
-    }
+    },
+    "trademarkBadge": "Registered trademark",
+    "trademarkTitle": "Trademark Registration",
+    "trademarkNote": "The {{name}} trademark is registered to our company with the Turkish Patent and Trademark Office and is protected under Industrial Property Law no. 6769. Unauthorised use of the name, the logo or any confusingly similar sign gives rise to legal liability.",
+    "trademarkNo": "Registration No",
+    "trademarkClasses": "Goods / Service Classes",
+    "trademarkTerm": "Protection Period",
+    "trademarkOwner": "Trademark Owner",
+    "trademarkCaption": "Turkish Patent and Trademark Office — Trademark Registration Certificate",
+    "trademarkDownload": "Download as PDF",
+    "trademarkImageAlt": "Trademark Registration Certificate for {{name}} issued by the Turkish Patent and Trademark Office"
   },
   "contact": {
     "title": "Contact",

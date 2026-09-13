@@ -155,7 +155,17 @@
           "description": "Sistem üzerinde kaydedilen tüm log kayıtları TÜBİTAK Zaman Damgası ile imzalanarak cihaz üzerinde saklanır."
         }
       ]
-    }
+    },
+    "trademarkBadge": "Tescilli marka",
+    "trademarkTitle": "Marka Tescili",
+    "trademarkNote": "{{name}} markası, Türk Patent ve Marka Kurumu nezdinde şirketimiz adına tescillidir ve 6769 sayılı Sınai Mülkiyet Kanunu kapsamında korunmaktadır. Marka adının, logosunun veya bunlarla karıştırılabilecek işaretlerin izinsiz kullanılması hukuki sorumluluk doğurur.",
+    "trademarkNo": "Tescil No",
+    "trademarkClasses": "Mal / Hizmet Sınıfları",
+    "trademarkTerm": "Koruma Süresi",
+    "trademarkOwner": "Marka Sahibi",
+    "trademarkCaption": "Türk Patent ve Marka Kurumu — Marka Tescil Belgesi",
+    "trademarkDownload": "PDF olarak indir",
+    "trademarkImageAlt": "{{name}} markasının Türk Patent ve Marka Kurumu tarafından düzenlenen Marka Tescil Belgesi"
   },
   "contact": {
     "title": "İletişim",
