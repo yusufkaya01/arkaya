@@ -23,7 +23,10 @@
  * `trademark`: ürün adı Türk Patent ve Marka Kurumu nezdinde TESCİLLİ
  * (14.09.2026). Yalnız KENDİ ürünlerimizde bulunur — bayisi olduğumuz XLog'un
  * markası bize ait değildir ve öyle gösterilemez. Belge SAYFADA GÖSTERİLİR
- * (Ürünler → ilgili ürün bölümü); `pdf` yalnız indirmek isteyen içindir.
+ * (Ürünler → ilgili ürün bölümü; ikisi birden Hakkımızda → Belgelerimiz'de de,
+ * AYNI `components/Certificate.js` bileşeniyle). PDF indirme bağlantısı YOKTUR
+ * ve PDF `public/`e konmaz (kullanıcı kararı 14.09.2026): ziyaretçinin belgeyi
+ * indirmesine gerek yok.
  * Dosya adlarında numara/tarih YOKTUR (kullanıcı kararı): tescil numarası bir
  * tarih gibi okunuyordu ve marka yenilendiğinde adres de değişirdi.
  * `width`/`height` görselin GERÇEK pikselidir — logolardaki kuralla aynı, CLS.
@@ -45,7 +48,6 @@ export const PRODUCTS = [
       classes: '09, 42',
       term: '24.01.2026 – 24.01.2036',
       image: '/marka-tescil-belgesi-katip-otomasyonu.jpg',
-      pdf: '/marka-tescil-belgesi-katip-otomasyonu.pdf',
       width: 1240,
       height: 1755
     }
@@ -64,7 +66,6 @@ export const PRODUCTS = [
       classes: '09, 42',
       term: '15.04.2026 – 15.04.2036',
       image: '/marka-tescil-belgesi-isg-asistan.jpg',
-      pdf: '/marka-tescil-belgesi-isg-asistan.pdf',
       width: 1240,
       height: 1755
     }

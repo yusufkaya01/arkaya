@@ -57,7 +57,18 @@
       { "value": "Isparta", "label": "Merkez" }
     ],
     "valuesTitle": "Değerlerimiz",
-    "valuesSubtitle": "Arkaya olarak iş yapış şeklimizi belirleyen temel ilkelerimiz"
+    "valuesSubtitle": "Arkaya olarak iş yapış şeklimizi belirleyen temel ilkelerimiz",
+    "certificatesTitle": "Belgelerimiz",
+    "certificatesSubtitle": "Resmî kurumların şirketimiz ve ürünlerimiz adına düzenlediği belgeler",
+    "teknogirisimTitle": "Teknogirişim Rozeti",
+    "teknogirisimNote": "Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi, T.C. Sanayi ve Teknoloji Bakanlığı tarafından Teknoloji ve Yenilik Odaklı Girişimlerin Belirlenmesi ve Belgelendirilmesine Dair Yönetmelik kapsamında Teknogirişim Rozeti ile belgelendirilmiştir.",
+    "teknogirisimDocNo": "Belge Sıra No",
+    "teknogirisimTerm": "Geçerlilik Süresi",
+    "teknogirisimHolder": "Belge Sahibi",
+    "teknogirisimIssuer": "Düzenleyen",
+    "teknogirisimIssuerName": "T.C. Sanayi ve Teknoloji Bakanlığı",
+    "teknogirisimCaption": "T.C. Sanayi ve Teknoloji Bakanlığı — Teknogirişim Rozeti",
+    "teknogirisimImageAlt": "Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi adına T.C. Sanayi ve Teknoloji Bakanlığı tarafından düzenlenen Teknogirişim Rozeti belgesi"
   },
   "products": {
     "title": "Ürünlerimiz",
@@ -163,9 +174,7 @@
     "trademarkClasses": "Mal / Hizmet Sınıfları",
     "trademarkTerm": "Koruma Süresi",
     "trademarkOwner": "Marka Sahibi",
-    "trademarkCaption": "Türk Patent ve Marka Kurumu — Marka Tescil Belgesi",
-    "trademarkDownload": "PDF olarak indir",
-    "trademarkImageAlt": "{{name}} markasının Türk Patent ve Marka Kurumu tarafından düzenlenen Marka Tescil Belgesi"
+    "trademarkCaption": "Türk Patent ve Marka Kurumu — Marka Tescil Belgesi",    "trademarkImageAlt": "{{name}} markasının Türk Patent ve Marka Kurumu tarafından düzenlenen Marka Tescil Belgesi"
   },
   "contact": {
     "title": "İletişim",

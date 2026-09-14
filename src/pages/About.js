@@ -4,6 +4,12 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
 import { usePageSeo } from '../utils/seo';
+import { PRODUCTS } from '../config/products';
+import {
+  CertificateTitle,
+  TeknogirisimCertificate,
+  TrademarkCertificate
+} from '../components/Certificate';
 
 const PageContainer = styled.div`
   padding-top: 80px; // Account for fixed header
@@ -199,6 +205,30 @@ export const About = () => {
               </ImageContainer>
             </motion.div>
           </ContentGrid>
+        </Container>
+      </Section>
+
+      {/* Belgelerimiz — resmî kurumların şirket ve ürün adına düzenlediği belgeler.
+          Belgeler SAYFADA görsel olarak durur; PDF indirme bağlantısı yoktur
+          (kullanıcı kararı 14.09.2026). Veriler config dosyalarından okunur:
+          rozet `config/teknogirisim.js`, marka tescili `config/products.js`
+          (Ürünler sayfasıyla AYNI kaynak ve AYNI bileşen). */}
+      <Section>
+        <Container>
+          <SectionTitle>{t('about.certificatesTitle')}</SectionTitle>
+          <SectionSubtitle>{t('about.certificatesSubtitle')}</SectionSubtitle>
+          <TeknogirisimCertificate />
+          {/* Kendi ürünlerimizin marka tescilleri — Katip Otomasyonu ve İSG Asistan
+              (kullanıcı kararı 14.09.2026). Bayisi olduğumuz ürünün markası bize ait
+              değildir; `own` + `trademark` süzgeci onu dışarıda bırakır. */}
+          {PRODUCTS.filter((product) => product.own && product.trademark).map((product) => (
+            <React.Fragment key={product.key}>
+              <CertificateTitle>
+                {t('products.trademarkTitle')} — {t(`products.${product.key}.name`)}
+              </CertificateTitle>
+              <TrademarkCertificate productKey={product.key} trademark={product.trademark} />
+            </React.Fragment>
+          ))}
         </Container>
       </Section>
 

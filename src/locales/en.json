@@ -57,7 +57,18 @@
       { "value": "Isparta", "label": "Headquarters" }
     ],
     "valuesTitle": "Our Values",
-    "valuesSubtitle": "The core principles that shape how we work at Arkaya"
+    "valuesSubtitle": "The core principles that shape how we work at Arkaya",
+    "certificatesTitle": "Our Certificates",
+    "certificatesSubtitle": "Documents issued by public authorities for our company and products",
+    "teknogirisimTitle": "Teknogirişim Badge",
+    "teknogirisimNote": "Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi has been certified with the Teknogirişim Badge by the Ministry of Industry and Technology of the Republic of Türkiye under the Regulation on the Identification and Certification of Technology- and Innovation-Focused Startups.",
+    "teknogirisimDocNo": "Certificate No",
+    "teknogirisimTerm": "Validity Period",
+    "teknogirisimHolder": "Holder",
+    "teknogirisimIssuer": "Issued By",
+    "teknogirisimIssuerName": "Ministry of Industry and Technology of the Republic of Türkiye",
+    "teknogirisimCaption": "Ministry of Industry and Technology — Teknogirişim Badge",
+    "teknogirisimImageAlt": "Teknogirişim Badge certificate issued to Arkaya Arge Yazılım İnşaat Ticaret Limited Şirketi by the Ministry of Industry and Technology of the Republic of Türkiye"
   },
   "products": {
     "title": "Our Products",
@@ -163,9 +174,7 @@
     "trademarkClasses": "Goods / Service Classes",
     "trademarkTerm": "Protection Period",
     "trademarkOwner": "Trademark Owner",
-    "trademarkCaption": "Turkish Patent and Trademark Office — Trademark Registration Certificate",
-    "trademarkDownload": "Download as PDF",
-    "trademarkImageAlt": "Trademark Registration Certificate for {{name}} issued by the Turkish Patent and Trademark Office"
+    "trademarkCaption": "Turkish Patent and Trademark Office — Trademark Registration Certificate",    "trademarkImageAlt": "Trademark Registration Certificate for {{name}} issued by the Turkish Patent and Trademark Office"
   },
   "contact": {
     "title": "Contact",

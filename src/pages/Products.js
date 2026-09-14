@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
 import { PRODUCTS, ETBIS_QUERY_URL } from '../config/products';
 import { usePageSeo } from '../utils/seo';
+import { TrademarkCertificate } from '../components/Certificate';
 
 const PageContainer = styled.div`
   padding-top: 80px;
@@ -217,89 +218,8 @@ const FeatureCard = styled(motion.div)`
   }
 `;
 
-/* Marka tescili: belge SAYFADA görünür, bağlantının arkasında değil (kullanıcı
-   kararı 14.09.2026). Solda belgenin kendisi, sağda künye — dar ekranda alt
-   alta. Belge sütunu dar tutulur (340px): A4 bir tarama, ürün bölümünün geri
-   kalanını ezmemeli.
-
-   Hizalama "start" DEĞİL "center": künye metni belgeden çok daha kısa, üste
-   hizalandığında sağ sütunun altında yarım ekran boşluk kalıyor ve bölüm yarım
-   kalmış gibi okunuyordu (ölçüldü).
-
-   NOT — styled-components şablon dizgesi: CSS yorumunun İÇİNDE ters tırnak
-   KULLANILMAZ, dizgeyi orada bitirir ve derleme "Missing semicolon" der. */
-const TrademarkBlock = styled.div`
-  display: grid;
-  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
-  gap: ${theme.spacing['2xl']};
-  align-items: center;
-  margin-bottom: ${theme.spacing['2xl']};
-
-  @media (max-width: ${theme.breakpoints.md}) {
-    grid-template-columns: 1fr;
-    gap: ${theme.spacing.lg};
-  }
-`;
-
-const CertificateFigure = styled.figure`
-  margin: 0;
-
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-    /* Belge taraması her zaman beyaz kâğıttır — zemini açıkça beyaz veriyoruz
-       ki yüzey rengi değişse de belge kendi kâğıdında dursun. */
-    background: #ffffff;
-    border: 1px solid ${theme.colors.border};
-    border-radius: ${theme.borderRadius.lg};
-  }
-
-  figcaption {
-    margin-top: ${theme.spacing.sm};
-    text-align: center;
-    font-size: ${theme.fontSizes.xs};
-    color: ${theme.colors.text.secondary};
-    line-height: 1.5;
-  }
-`;
-
-/* Ürün açıklaması `Description`tır (lg punto, 3rem alt boşluk); bu iki sütunlu
-   blokta o ölçüler fazla havalı kalıyor — künye kendi paragraf ölçüsünü alır. */
-const TrademarkNote = styled.p`
-  margin: 0 0 ${theme.spacing.lg} 0;
-  color: ${theme.colors.text.secondary};
-  font-size: ${theme.fontSizes.md};
-  line-height: 1.7;
-`;
-
-const FactList = styled.dl`
-  margin: 0 0 ${theme.spacing.lg} 0;
-  display: grid;
-  grid-template-columns: max-content minmax(0, 1fr);
-  gap: ${theme.spacing.sm} ${theme.spacing.lg};
-
-  dt {
-    color: ${theme.colors.text.secondary};
-    font-size: ${theme.fontSizes.sm};
-  }
-
-  dd {
-    margin: 0;
-    color: ${theme.colors.text.primary};
-    font-size: ${theme.fontSizes.sm};
-    font-weight: 600;
-  }
-`;
-
-const DocLink = styled.a`
-  color: ${theme.colors.text.secondary};
-  text-decoration: underline;
-
-  &:hover {
-    color: ${theme.colors.text.primary};
-  }
-`;
+/* Marka tescil bloğu `components/Certificate.js`tedir — Hakkımızda → Belgelerimiz
+   de AYNI bileşeni çizer (Teknogirişim Rozeti + iki ürünün marka tescili). */
 
 const Actions = styled.div`
   display: flex;
@@ -459,44 +379,7 @@ export const Products = () => {
               {product.trademark && (
                 <>
                   <BlockTitle>{t('products.trademarkTitle')}</BlockTitle>
-                  <TrademarkBlock>
-                    <CertificateFigure>
-                      <img
-                        src={product.trademark.image}
-                        alt={t('products.trademarkImageAlt', { name: t(`${base}.name`) })}
-                        width={product.trademark.width}
-                        height={product.trademark.height}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <figcaption>
-                        {t('products.trademarkCaption')}
-                        {' · '}
-                        <DocLink
-                          href={product.trademark.pdf}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {t('products.trademarkDownload')}
-                        </DocLink>
-                      </figcaption>
-                    </CertificateFigure>
-                    <div>
-                      <TrademarkNote>
-                        {t('products.trademarkNote', { name: t(`${base}.name`) })}
-                      </TrademarkNote>
-                      <FactList>
-                        <dt>{t('products.trademarkNo')}</dt>
-                        <dd>{product.trademark.no}</dd>
-                        <dt>{t('products.trademarkClasses')}</dt>
-                        <dd>{product.trademark.classes}</dd>
-                        <dt>{t('products.trademarkTerm')}</dt>
-                        <dd>{product.trademark.term}</dd>
-                        <dt>{t('products.trademarkOwner')}</dt>
-                        <dd>{process.env.REACT_APP_COMPANY_NAME}</dd>
-                      </FactList>
-                    </div>
-                  </TrademarkBlock>
+                  <TrademarkCertificate productKey={product.key} trademark={product.trademark} />
                 </>
               )}
 
